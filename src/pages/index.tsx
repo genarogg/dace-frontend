@@ -1,5 +1,7 @@
-const Home = () => {
-  return <h1>hola mundo</h1>;
+import Home from "@views/home/Home";
+
+const Index = () => {
+  return <Home />;
 };
 
-export default Home;
+export default Index;
