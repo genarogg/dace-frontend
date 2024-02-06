@@ -1,16 +1,15 @@
 @import "./global/mixin";
 @import "./global/variables";
 @import "./faces/global/containerInput";
+@import "./faces/global/checkBox";
 @import "./faces/login";
-
-
 
 .container-form-all {
   height: 500px;
   width: 400px;
   @include center-x;
   .icono {
-    color: rgb(72, 40, 211);
+    /* color: rgb(72, 40, 211); */
     font-size: 20px;
   }
 }

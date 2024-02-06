@@ -1,4 +1,6 @@
 import ContainerInput from "./global/ContainerInput";
+import CheckBox from "./global/CheckBox";
+
 import { BsEnvelopeFill } from "react-icons/bs";
 import { MdLock } from "react-icons/md";
 
@@ -11,15 +13,16 @@ const Login: React.FC<LoginProps> = () => {
         <ContainerInput
           type="text"
           name="nombre"
-          placeholder={"nombre"}
+          placeholder={"Nombre"}
           icono={<BsEnvelopeFill />}
         />
         <ContainerInput
           type="password"
           name="password"
-          placeholder={"contraseña"}
+          placeholder={"Contraseña"}
           icono={<MdLock />}
         />
+        <CheckBox />
       </form>
     </div>
   );
