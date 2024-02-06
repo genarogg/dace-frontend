@@ -6,7 +6,15 @@
 
 @import "../components/views/home/form/css/form.scss";
 
-.icono{
+.icono {
   color: rgb(34, 34, 34);
   font-size: 20px;
+}
+
+body {
+  font-family: "Nunito", "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
 }

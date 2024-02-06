@@ -1,0 +1,17 @@
+/* @mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+// centrar elementos
+@mixin center {
+  display: grid;
+  place-content: center;
+}
+
+@mixin center-x {
+  display: flex;
+
+  justify-content: center;
+}
