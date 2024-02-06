@@ -9,10 +9,10 @@ const Home: React.FunctionComponent<HomeProps> = () => {
     <Layout>
       <div className="containerAll">
         <Form />
-       
       </div>
 
-       {/* <button
+       <button
+       style={{position: "fixed", bottom: "30px", right: "0"}}
           onClick={() =>
             toast.success('🦄 Wow so easy!', {
               position: "top-right",
@@ -28,7 +28,7 @@ const Home: React.FunctionComponent<HomeProps> = () => {
           }
         >
           notificacion
-        </button> */}
+        </button>
     </Layout>
   );
 };

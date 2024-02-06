@@ -1,70 +1,69 @@
 .container-input {
-  /* display: flex;
-    justify-content: center;
-    align-items: center; */
-
-  width: 100%;
-  background-color: #d4a5a5;
-  max-width: 333px;
-  height: 42px;
-  position: relative;
-
-  display: grid;
-  grid-template-columns: 1fr 7fr;
-
-  border-radius: 10px;
-  /*  overflow: hidden; */
-
-  * {
-    /* border: 1px solid red; */
-    transition: 500ms ease all;
-  }
-
-  &.focus {
-    span.holder {
-      top: 0;
-
-      font-weight: 600;
-      font-size: 14px;
-    }
-  }
-
-  label {
-    @include center;
-
-    .icono {
-      @include center;
-      color: #fff;
-    }
-  }
-
-  input {
-    width: 100%;
-    height: 100%;
-    border: none;
-    outline: none;
-    padding: 0 10px;
-    font-size: 16px;
-    background-color: transparent;
+    border: 1px solid $border-color;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    height: 42px;
+    max-width: 333px;
     position: relative;
-    font-weight: 600;
-  }
-
-  span.holder {
-    position: absolute;
-    top: 50%;
-    left: 50px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    color: #fff;
-    font-size: 16px;
-    transition: 0.3s;
-
-    &.has-content {
-      top: 0 !important;
-
+    width: 100%;
+  
+    &,
+    * {
+      transition: 500ms ease all;
+    }
+  
+    &:hover {
+      border: 1px solid $azul;
+    }
+  
+    &.focus {
+      border: 1px solid $azul;
+  
+      span.holder {
+        font-size: 14px;
+        font-weight: 600;
+        top: 0;
+      }
+    }
+  
+    input {
+      background-color: transparent;
+      border: none;
+      font-size: 16px;
       font-weight: 600;
-      font-size: 14px;
+      height: 100%;
+      outline: none;
+      padding: 0 10px;
+      position: relative;
+      width: 100%;
+    }
+  
+    label {
+      @include center;
+  
+      .icono {
+        @include center;
+        color: #fff;
+      }
+    }
+  
+    span.holder {
+      background-color: $gris;
+      color: #fff;
+      font-size: 16px;
+      left: 40px;
+      padding: 0 10px;
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: 0.3s;
+  
+      &.has-content {
+        font-size: 14px;
+        font-weight: 600;
+        top: 0 !important;
+      }
     }
   }
-}

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
 import { Icono } from "@nano";
-import { AiFillMail } from "react-icons/ai";
-
 interface ContainerInputProps {
   type: string;
   name: string;
   id?: string;
   placeholder: string;
+  icono?: React.ReactNode;
 }
 
 const ContainerInput: React.FC<ContainerInputProps> = ({
@@ -15,6 +14,8 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
   name,
   id = name,
   placeholder,
+  icono
+
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasContent, setHasContent] = useState(false);
@@ -26,7 +27,7 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
   return (
     <div className={`container-input ${isFocused ? "focus" : ""}`}>
       <label htmlFor={`#${id}`}>
-        <Icono icono={<AiFillMail />} />
+        <Icono icono={icono} />
       </label>
 
       <input
