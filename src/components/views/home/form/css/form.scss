@@ -1,8 +1,15 @@
-.containerAll{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    background-color: #f5f5f5;
+.containerAll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+.container-form-all {
+  .icono {
+    color: rgb(72, 40, 211);
+    font-size: 20px;
+  }
 }

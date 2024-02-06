@@ -2,4 +2,11 @@
   border: 1px solid red !important;
 } */
 
-@import "../components/views/home/form/css/form.scss"
+@import "lib/normalize.scss";
+
+@import "../components/views/home/form/css/form.scss";
+
+.icono{
+  color: rgb(34, 34, 34);
+  font-size: 20px;
+}

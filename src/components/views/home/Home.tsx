@@ -1,14 +1,35 @@
+import { toast } from "react-toastify";
 import Form from "./form/Form";
+import Layout from "@layout";
 
 interface HomeProps {}
 
 const Home: React.FunctionComponent<HomeProps> = () => {
   return (
-    <>
+    <Layout>
       <div className="containerAll">
         <Form />
+       
       </div>
-    </>
+
+       {/* <button
+          onClick={() =>
+            toast.success('🦄 Wow so easy!', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+           
+              })
+          }
+        >
+          notificacion
+        </button> */}
+    </Layout>
   );
 };
 

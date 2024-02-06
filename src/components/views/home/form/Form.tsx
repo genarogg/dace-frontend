@@ -1,10 +1,12 @@
+import Login from "./faces/Login";
+
 interface FormProps {}
 
 const Form: React.FunctionComponent<FormProps> = () => {
   return (
-    <>
-      <h1>hola</h1>
-    </>
+    <div className="container-form-all">
+      <Login />
+    </div>
   );
 };
 
