@@ -9,6 +9,10 @@
 
 /* Logica para voltear la tarjeta */
 
+*{
+  border: 1px solid red;
+}
+
 .container-form-all {
   @include center-x;
   height: 500px;
@@ -146,9 +150,7 @@
   }
 
   .icono {
-    font-size: 20px;
-    /* transition: all ease 500ms; */
-    
+    font-size: 20px;    
   }
 
   form {

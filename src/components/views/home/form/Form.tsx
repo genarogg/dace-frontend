@@ -15,9 +15,9 @@ const Form: React.FC<FormProps> = () => {
 
   return (
     <div className={`container-form-all ${formState}`} id="containerFormAll">
+      <ResetPass cardState={setFormState} />
       <Login cardState={cardState} />
       <Register cardState={setFormState} />
-      <ResetPass cardState={setFormState} />
     </div>
   );
 };
