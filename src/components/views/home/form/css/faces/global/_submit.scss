@@ -1,0 +1,44 @@
+.submit-container {
+  @include center-x;
+  height: 42px;
+  position: relative;
+  width: 100%;
+
+  &,
+  * {
+    transition: 500ms ease all;
+  }
+
+  button {
+    background-color: transparent;
+    border: 1px solid $border-color;
+    border-radius: 10px;
+
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    height: 100%;
+    max-width: calc(333px / 1.5);
+    outline: none;
+    position: relative;
+    width: 100%;
+
+    &:active {
+      background-color: rgba($azul, 7);
+      transform: scale(0.9);
+    }
+
+    &:disabled {
+      background-color: rgba($azul, 3);
+    }
+
+    &:focus {
+      background-color: rgba($azul, 7);
+    }
+
+    &:hover {
+      background-color: rgba($azul, 7);
+    }
+  }
+}

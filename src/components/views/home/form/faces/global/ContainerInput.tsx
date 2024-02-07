@@ -7,6 +7,8 @@ interface ContainerInputProps {
   id?: string;
   placeholder: string;
   icono?: React.ReactNode;
+  value: string;
+  valueChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const ContainerInput: React.FC<ContainerInputProps> = ({
@@ -14,14 +16,16 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
   name,
   id = name,
   placeholder,
-  icono
-
+  icono,
+  value,
+  valueChange,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasContent, setHasContent] = useState(false);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setHasContent(event.target.value !== "");
+    valueChange(event);
   };
 
   return (
@@ -37,6 +41,7 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         onChange={handleInputChange}
+        value={value}
       />
       <span className={`holder ${hasContent ? "has-content" : ""}`}>
         {placeholder}

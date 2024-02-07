@@ -3,13 +3,16 @@ import { Icono } from "@nano";
 import { FaSquareCheck } from "react-icons/fa6";
 import { ImCheckboxUnchecked } from "react-icons/im";
 
-interface CheckBoxProps {}
+interface CheckBoxProps {
+  valueChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-const CheckBox: React.FC<CheckBoxProps> = () => {
+const CheckBox: React.FC<CheckBoxProps> = ({ valueChange }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
     setIsClicked(!isClicked);
+    valueChange({ target: { checked: !isClicked } } as React.ChangeEvent<HTMLInputElement>);
   };
 
   return (

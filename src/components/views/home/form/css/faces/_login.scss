@@ -10,5 +10,22 @@
     gap: 25px;
     grid-template-columns: 1fr;
     padding: 40px;
+
+    .container-recovery{
+      @include center-x;
+      
+      button{
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        outline: none;
+        span{
+          text-decoration: none;
+        }
+      }
+    }
   }
 }
