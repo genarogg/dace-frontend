@@ -11,9 +11,11 @@ import { HiIdentification } from "react-icons/hi2";
 import { BsFillEnvelopeHeartFill } from "react-icons/bs";
 import { MdOutlineLock } from "react-icons/md";
 import { IoMdUnlock } from "react-icons/io";
-interface RegisterProps {}
+interface RegisterProps {
+  cardState: (css: string) => void;
+}
 
-const Register: React.FC<RegisterProps> = () => {
+const Register: React.FC<RegisterProps> = ({ cardState }) => {
   const [formData, setFormData] = useState({
     cedula: "",
     email: "",
@@ -24,7 +26,7 @@ const Register: React.FC<RegisterProps> = () => {
 
   return (
     <div className="register right">
-      <HeadBtn />
+      <HeadBtn cardState={cardState} />
       <form>
         <ContainerInput
           type="text"

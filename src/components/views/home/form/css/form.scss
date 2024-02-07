@@ -7,21 +7,58 @@
 @import "./faces/login";
 @import "./faces/register";
 
-.container-form-all {
-  height: 500px;
-  width: 400px;
-  @include center-x;
-  position: relative;
+/* Logica para voltear la tarjeta */
 
-  .icono {
-    font-size: 20px;
+.container-form-all {
+  @include center-x;
+  height: 500px;
+  width: 360px;
+  position: relative;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+
+  z-index: 2;
+  transition: 1s all ease-in-out;
+
+  &.right-active {
+    transform: rotateY(180deg);
+
+    &.active {
+      .right {
+        animation: colorChange 1s forwards;
+      }
+    }
+
+    .front {
+      z-index: 1;
+    }
+
+    .right {
+      @include height(500px);
+      transition: all ease 1.6s;
+      z-index: 4;
+      border: 1px solid #fff;
+    }
   }
 
-  form {
-    @include center-x;
-    display: grid;
-    gap: 30px;
-    grid-template-columns: 1fr;
+  &.front-active {
+    transform: rotateY(0deg);
+
+    &.active {
+      .front {
+        animation: colorChange 1s forwards;
+      }
+    }
+
+    .front {
+      z-index: 4;
+      transition: all ease 1.6s;
+      border: 1px solid #fff;
+    }
+
+    .right {
+      z-index: 1;
+    }
   }
 
   .login,
@@ -36,13 +73,45 @@
     flex-direction: column;
     padding: 40px;
     padding-top: 30px;
+
+    @include width(360px);
   }
 
   .front {
-    @include height(360px);
+    @include height(380px);
+    position: absolute;
+    backface-visibility: hidden;
   }
 
   .right {
-    @include height(475px);
+    @include height(380px);
+    position: absolute;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transition: all ease 0.8s;
+    overflow: hidden;
+  }
+
+  .icono {
+    font-size: 20px;
+  }
+
+  form {
+    @include center-x;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    border-color: #fff;
+  }
+  50% {
+    border-color: $azul;
+  }
+  100% {
+    border-color: #fff;
   }
 }

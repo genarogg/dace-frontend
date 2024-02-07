@@ -8,9 +8,11 @@ import { MdLock } from "react-icons/md";
 
 import HeadBtn from "./global/HeadBtn";
 
-interface LoginProps {}
+interface LoginProps {
+  cardState: (css: string) => void;
+}
 
-const Login: React.FC<LoginProps> = () => {
+const Login: React.FC<LoginProps> = ({cardState}) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -19,7 +21,7 @@ const Login: React.FC<LoginProps> = () => {
 
   return (
     <div className="login front">
-      <HeadBtn />
+      <HeadBtn cardState={cardState}/>
       <form>
         <ContainerInput
           type="email"
