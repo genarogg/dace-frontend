@@ -25,7 +25,7 @@ const Register: React.FC<RegisterProps> = ({ cardState }) => {
   });
 
   return (
-    <div className="register right">
+    <div className="register right" id="register">
       <HeadBtn cardState={cardState} />
       <form>
         <ContainerInput

@@ -18,11 +18,26 @@ const ResetPass: React.FC<ResetPassProps> = ({ cardState }) => {
   });
 
   const active = () => {
-    $("btnBack")?.classList.remove("active");
+    setTimeout(() => {
+      $("btnBack")?.classList.remove("active");
+
+      const register = $("register");
+
+      if (register) {
+        register.style.display = "flex";
+      }
+
+      const reset = $("reset");
+      
+      if (reset) {
+        reset.style.display = "none";
+      }
+      
+    }, 600);
   };
 
   return (
-    <div className="reset left">
+    <div className="reset left" id="reset">
       <div className="title">
         <button
           id="btnBack"

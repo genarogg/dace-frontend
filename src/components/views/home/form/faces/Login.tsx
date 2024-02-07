@@ -22,6 +22,18 @@ const Login: React.FC<LoginProps> = ({ cardState }) => {
 
   const active = () => {
     $("btnBack")?.classList.add("active");
+
+    const register = $("register");
+
+    if (register) {
+      register.style.display = "none";
+    }
+
+    const reset = $("reset");
+
+    if (reset) {
+      reset.style.display = "flex";
+    }
   };
 
   return (

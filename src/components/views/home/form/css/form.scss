@@ -67,10 +67,12 @@
 
   &.left-active {
     transform: rotateY(-180deg);
-
+    
     &.active {
       .left {
         animation: colorChange 1s forwards;
+       
+     
       }
     }
 
@@ -78,6 +80,7 @@
       z-index: 4;
       transition: all ease 1.6s;
       border: 1px solid #fff;
+      
     }
 
     .right {
@@ -107,6 +110,8 @@
     @include height(380px);
     position: absolute;
     backface-visibility: hidden;
+
+    
   }
 
   .right {
@@ -125,6 +130,7 @@
     backface-visibility: hidden;
     transition: all ease 0.8s;
     overflow: hidden;
+    display: none;
 
     .text-recovery {
       background-color: transparent;
