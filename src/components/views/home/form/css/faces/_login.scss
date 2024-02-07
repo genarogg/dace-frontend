@@ -9,10 +9,11 @@
   flex-direction: column;
   padding: 40px;
   padding-top: 30px;
+  
   form {
     @include center-x;
     display: grid;
-    gap: 25px;
+    gap: 30px;
     grid-template-columns: 1fr;
 
     .container-recovery {

@@ -7,7 +7,7 @@ interface ContainerInputProps {
   id?: string;
   placeholder: string;
   icono?: React.ReactNode;
-  value: string;
+  value: string | number | boolean;
   valueChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -41,7 +41,7 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         onChange={handleInputChange}
-        value={value}
+        value={value as string | number | readonly string[] | undefined}
       />
       <span className={`holder ${hasContent ? "has-content" : ""}`}>
         {placeholder}

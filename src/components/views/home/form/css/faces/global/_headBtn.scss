@@ -1,42 +1,39 @@
-.btn-sesion{
+.btn-sesion {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 35px;
+  width: 222px;
+  display: flex;
+  justify-content: space-around;
+
+  button {
+    background-color: transparent;
+    border: none;
     color: #fff;
-    font-size: 18px;
-    font-weight: 600;
     cursor: pointer;
-    margin-bottom: 25px;
-    width: 222px;
-    display: flex;
-    justify-content: space-around;
-   /*  &:hover{
-        
-    }
-    &:active{
-        transform: scale(0.9);
-    }
-    &:focus{
-        
-    } */
-  
-    button{
-        background-color: transparent;
-        border: none;
-        color: #fff;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: 600;
-        outline: none;
+    font-size: 16px;
+    font-weight: 600;
+    outline: none;
 
-        transition: 500ms all ease;
-        span {
-          text-decoration: none;
-        }
+    transition: 500ms all ease;
 
-        &:active{
-            transform: scale(0.9);
-        }
+    &:hover {
+      color: $azul;
     }
 
-    .span-sesion{
-        cursor: default;
+    &:active {
+      transform: scale(0.9);
     }
+
+    span {
+      text-decoration: none;
+    }
+  }
+
+  .span-sesion {
+    cursor: default;
+  }
 }
