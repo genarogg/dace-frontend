@@ -1,13 +1,38 @@
-interface HeadBtnProps {}
+import $ from "../../function/$";
 
-const HeadBtn: React.FC<HeadBtnProps> = () => {
+interface HeadBtnProps {
+  cardState: (css: string) => void;
+}
+
+const HeadBtn: React.FC<HeadBtnProps> = ({ cardState }) => {
+  const btnActive = () => {
+    $("containerFormAll")?.classList.add("active");
+
+    //quita la clase active despues de 3 segundos
+    setTimeout(() => {
+      $("containerFormAll")?.classList.remove("active");
+    }, 1000);
+  };
+
   return (
     <div className="btn-sesion">
-      <button className="btn-login" id="btnLogin">
+      <button
+        id="btnLogin"
+        onClick={() => {
+          cardState("front-active");
+          btnActive();
+        }}
+      >
         <span>Iniciar sesión</span>
       </button>
       <span className="span-sesion">|</span>
-      <button className="register" id="btnRegister">
+      <button
+        id="btnRegister"
+        onClick={() => {
+          cardState("right-active");
+          btnActive();
+        }}
+      >
         <span>Regístrarse</span>
       </button>
     </div>

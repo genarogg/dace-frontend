@@ -8,27 +8,29 @@ import { MdLock } from "react-icons/md";
 
 import HeadBtn from "./global/HeadBtn";
 
-interface LoginProps {}
+interface LoginProps {
+  cardState: (css: string) => void;
+}
 
-const Login: React.FC<LoginProps> = () => {
+const Login: React.FC<LoginProps> = ({cardState}) => {
   const [formData, setFormData] = useState({
-    name: "",
+    email: "",
     password: "",
     remenber: false,
   });
 
   return (
-    <div className="login">
-      <HeadBtn />
+    <div className="login front">
+      <HeadBtn cardState={cardState}/>
       <form>
         <ContainerInput
-          type="text"
-          name="nombre"
+          type="email"
+          name="email"
           placeholder={"Nombre"}
           icono={<BsEnvelopeFill />}
-          value={formData.name}
+          value={formData.email}
           valueChange={(e) =>
-            setFormData({ ...formData, name: e.target.value })
+            setFormData({ ...formData, email: e.target.value })
           }
         />
         <ContainerInput

@@ -7,57 +7,85 @@ import { BsEnvelopeFill } from "react-icons/bs";
 import { MdLock } from "react-icons/md";
 
 import HeadBtn from "./global/HeadBtn";
+import { HiIdentification } from "react-icons/hi2";
+import { BsFillEnvelopeHeartFill } from "react-icons/bs";
+import { MdOutlineLock } from "react-icons/md";
+import { IoMdUnlock } from "react-icons/io";
+interface RegisterProps {
+  cardState: (css: string) => void;
+}
 
-interface RegisterProps {}
-
-const Register: React.FC<RegisterProps> = () => {
+const Register: React.FC<RegisterProps> = ({ cardState }) => {
   const [formData, setFormData] = useState({
-    name: "",
+    cedula: "",
+    email: "",
+    emailRepeat: "",
     password: "",
-    remenber: false,
+    passwordRepeat: "",
   });
 
   return (
-    <div className="login">
-      <HeadBtn />
-      <h1>register</h1>
+    <div className="register right">
+      <HeadBtn cardState={cardState} />
       <form>
         <ContainerInput
           type="text"
-          name="nombre"
-          placeholder={"Nombre"}
-          icono={<BsEnvelopeFill />}
-          value={formData.name}
+          name="cedula"
+          placeholder={"Cedula"}
+          icono={<HiIdentification />}
+          value={formData.cedula}
           valueChange={(e) =>
-            setFormData({ ...formData, name: e.target.value })
+            setFormData({ ...formData, cedula: e.target.value })
           }
         />
+
+        <ContainerInput
+          type="email"
+          name="email"
+          placeholder={"Email"}
+          icono={<BsEnvelopeFill />}
+          value={formData.email}
+          valueChange={(e) =>
+            setFormData({ ...formData, email: e.target.value })
+          }
+        />
+
+        <ContainerInput
+          type="email"
+          name="emailRepeat"
+          placeholder={"Repetir Email"}
+          icono={<BsFillEnvelopeHeartFill />}
+          value={formData.emailRepeat}
+          valueChange={(e) =>
+            setFormData({ ...formData, emailRepeat: e.target.value })
+          }
+        />
+
         <ContainerInput
           type="password"
           name="password"
           placeholder={"Contraseña"}
-          icono={<MdLock />}
+          icono={<IoMdUnlock />}
           value={formData.password}
           valueChange={(e) =>
             setFormData({ ...formData, password: e.target.value })
           }
         />
 
-        <CheckBox
+        <ContainerInput
+          type="password"
+          name="passwordRepeat"
+          placeholder={"Repetir Email"}
+          icono={<MdLock />}
+          value={formData.passwordRepeat}
           valueChange={(e) =>
-            setFormData({ ...formData, remenber: e.target.checked })
+            setFormData({ ...formData, passwordRepeat: e.target.value })
           }
         />
 
         <div className="submit-container">
           <button className="submit" id="">
-            Acceder
-          </button>
-        </div>
-
-        <div className="container-recovery">
-          <button type="button">
-            <span>¿Olvidaste tu contraseña?</span>
+            Registrarse
           </button>
         </div>
       </form>
