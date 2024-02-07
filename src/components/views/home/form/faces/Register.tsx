@@ -15,7 +15,7 @@ interface RegisterProps {}
 
 const Register: React.FC<RegisterProps> = () => {
   const [formData, setFormData] = useState({
-    cedula: 0,
+    cedula: "",
     email: "",
     emailRepeat: "",
     password: "",
@@ -27,13 +27,13 @@ const Register: React.FC<RegisterProps> = () => {
       <HeadBtn />
       <form>
         <ContainerInput
-          type="number"
+          type="text"
           name="cedula"
           placeholder={"Cedula"}
           icono={<HiIdentification />}
           value={formData.cedula}
           valueChange={(e) =>
-            setFormData({ ...formData, cedula: Number(e.target.value) })
+            setFormData({ ...formData, cedula: e.target.value })
           }
         />
 
