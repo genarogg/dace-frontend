@@ -27,8 +27,14 @@
         font-size: 18px;
         font-weight: 600;
         outline: none;
+        transition: all ease 500ms;
         span {
           text-decoration: none;
+        }
+
+        &:active {
+          color: $azul;
+          transform: scale(.9);
         }
       }
     }

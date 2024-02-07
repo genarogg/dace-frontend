@@ -8,20 +8,25 @@ import { MdLock } from "react-icons/md";
 
 import HeadBtn from "./global/HeadBtn";
 
+import $ from "../function/$";
 interface LoginProps {
   cardState: (css: string) => void;
 }
 
-const Login: React.FC<LoginProps> = ({cardState}) => {
+const Login: React.FC<LoginProps> = ({ cardState }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
     remenber: false,
   });
 
+  const active = () => {
+    $("btnBack")?.classList.add("active");
+  };
+
   return (
     <div className="login front">
-      <HeadBtn cardState={cardState}/>
+      <HeadBtn cardState={cardState} />
       <form>
         <ContainerInput
           type="email"
@@ -57,7 +62,13 @@ const Login: React.FC<LoginProps> = ({cardState}) => {
         </div>
 
         <div className="container-recovery">
-          <button type="button">
+          <button
+            type="button"
+            onClick={() => {
+              active();
+              cardState("left-active");
+            }}
+          >
             <span>¿Olvidaste tu contraseña?</span>
           </button>
         </div>

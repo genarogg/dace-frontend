@@ -5,7 +5,7 @@
 @import "./faces/global/checkBox";
 @import "./faces/global/submit";
 @import "./faces/login";
-@import "./faces/register";
+@import "./faces/resetPass";
 
 /* Logica para voltear la tarjeta */
 
@@ -39,6 +39,10 @@
       z-index: 4;
       border: 1px solid #fff;
     }
+
+    /* .left{
+      display: none
+    }; */
   }
 
   &.front-active {
@@ -61,8 +65,30 @@
     }
   }
 
+  &.left-active {
+    transform: rotateY(-180deg);
+
+    &.active {
+      .left {
+        animation: colorChange 1s forwards;
+      }
+    }
+
+    .left {
+      z-index: 4;
+      transition: all ease 1.6s;
+      border: 1px solid #fff;
+    }
+
+    .right {
+      z-index: 1;
+      display: none;
+    }
+  }
+
   .login,
-  .register {
+  .register,
+  .left {
     border: 1px solid #fff;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
@@ -92,8 +118,31 @@
     overflow: hidden;
   }
 
+  .left {
+    @include height(260px);
+    position: absolute;
+    transform: rotateY(-180deg);
+    backface-visibility: hidden;
+    transition: all ease 0.8s;
+    overflow: hidden;
+
+    .text-recovery {
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 600;
+      outline: none;
+      transition: all ease 500ms;
+      max-width: 333px;
+    }
+  }
+
   .icono {
     font-size: 20px;
+    /* transition: all ease 500ms; */
+    
   }
 
   form {
