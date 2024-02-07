@@ -6,6 +6,8 @@ import CheckBox from "./global/CheckBox";
 import { BsEnvelopeFill } from "react-icons/bs";
 import { MdLock } from "react-icons/md";
 
+import HeadBtn from "./global/headBtn";
+
 interface LoginProps {}
 
 const Login: React.FC<LoginProps> = () => {
@@ -17,6 +19,7 @@ const Login: React.FC<LoginProps> = () => {
 
   return (
     <div className="login">
+      <HeadBtn />
       <form>
         <ContainerInput
           type="text"

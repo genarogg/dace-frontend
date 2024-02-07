@@ -1,10 +1,10 @@
 .container-input {
+@include width(333px);
     border: 1px solid $border-color;
     border-radius: 10px;
     display: grid;
     grid-template-columns: 1fr 7fr;
     height: 42px;
-    max-width: 333px;
     position: relative;
     width: 100%;
   

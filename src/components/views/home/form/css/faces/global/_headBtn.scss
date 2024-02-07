@@ -1,0 +1,38 @@
+.btn-sesion{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 25px;
+    width: 222px;
+    display: flex;
+    justify-content: space-around;
+   /*  &:hover{
+        
+    }
+    &:active{
+        transform: scale(0.9);
+    }
+    &:focus{
+        
+    } */
+  
+    button{
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        outline: none;
+
+        transition: 500ms all ease;
+        span {
+          text-decoration: none;
+        }
+
+        &:active{
+            transform: scale(0.9);
+        }
+    }
+}
