@@ -8,9 +8,9 @@ import { MdLock } from "react-icons/md";
 
 import HeadBtn from "./global/HeadBtn";
 
-interface LoginProps {}
+interface RegisterProps {}
 
-const Login: React.FC<LoginProps> = () => {
+const Register: React.FC<RegisterProps> = () => {
   const [formData, setFormData] = useState({
     name: "",
     password: "",
@@ -20,6 +20,7 @@ const Login: React.FC<LoginProps> = () => {
   return (
     <div className="login">
       <HeadBtn />
+      <h1>register</h1>
       <form>
         <ContainerInput
           type="text"
@@ -64,4 +65,4 @@ const Login: React.FC<LoginProps> = () => {
   );
 };
 
-export default Login;
+export default Register;
