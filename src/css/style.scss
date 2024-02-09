@@ -8,14 +8,16 @@ body {
   font-size: 20px;
 }
 
-@import "lib/normalize.scss";
-@import "../components/views/home/form/css/form.scss";
+@import "lib/normalize";
+@import "../components/views/home/form/css/form";
+@import "../components/layout/css/layout";
+@import "../components/views/home/css/home";
 
-.containerAll {
- display: flex;
- justify-content: center;
- align-items: center;
+/* .containerAll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   width: 100%;
   background-color: #10111e;
-}
+} */
