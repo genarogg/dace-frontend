@@ -12,9 +12,9 @@
   button {
     background-color: transparent;
     border: 1px solid $border-color;
-    border-radius: 10px;
+    border-radius: $border-radius;
 
-    color: #fff;
+    color: $text-color;
     cursor: pointer;
     font-size: 18px;
     font-weight: 600;

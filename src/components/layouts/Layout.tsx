@@ -13,7 +13,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
 }) => {
   return (
     <>
-      <div className={`container-all ${where}`}>
+      <div className={`container-all initial ${where}`}>
         <Header />
         <main>{children}</main>
         <Footer />

@@ -25,7 +25,7 @@
 
     .right {
       @include height(500px);
-      border: 1px solid #fff;
+      border: $border-color;
       transition: all ease 1.6s;
       z-index: 4;
     }

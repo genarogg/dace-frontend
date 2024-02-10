@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
     <header className="header-container">
       <div className="desktop-header">
         <div className="titulo">
-          <h1>UNERG | DACE</h1>
+          <h1>UNERG <span style={{position:"relative", bottom:"1px"}}>|</span> DACE</h1>
         </div>
         <nav>
           <ul>

@@ -1,0 +1,339 @@
+.initial {
+  $azul: #4153f2;
+  $rojo: #f24146;
+  $gris: #10111e;
+  $amarillo: #f2cb41;
+  $verde: #41f271;
+
+  $azul-unerg: #3d65fd;
+
+  $border-radius: 10px;
+  $box-shadow: 0px 0 30px rgba(#012970, 0.2);
+  $border-color: #999;
+
+
+
+  /* --- variables del theme --- */
+  $bakcground-color: $text-color;
+  $text-color: $azul-unerg;
+  &.container-all {
+    background-color: $bakcground-color;
+    width: 100%;
+  }
+
+  .icono {
+    color: $text-color;
+    font-size: 20px;
+  }
+
+  .header-container {
+    background-color: $bakcground-color;
+    border-bottom: transparent;
+  }
+
+  .footer-container {
+    background-color: $bakcground-color;
+    color: $text-color;
+    border-top: transparent;
+  }
+
+  .desktop-header {
+    .titulo {
+      color: $text-color;
+    }
+
+    nav {
+      ul {
+        li {
+          a {
+            color: $text-color;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-container {
+    .desktop-footer {
+      button {
+        color: $text-color;
+      }
+
+      ul {
+        li {
+          a {
+            color: $text-color;
+          }
+        }
+      }
+    }
+  }
+
+  .btn-sesion {
+    color: $text-color;
+
+    button {
+      background-color: transparent;
+
+      color: $text-color;
+
+      &:hover {
+        color: $azul;
+      }
+    }
+  }
+
+  .container-input {
+    border: 1px solid $border-color;
+
+    &,
+    * {
+      transition: 500ms ease all;
+    }
+
+    &:hover {
+      border: 1px solid $azul;
+    }
+
+    &.focus {
+      border: 1px solid $azul;
+    }
+
+    input {
+      background-color: transparent;
+
+      color: $text-color;
+    }
+
+    label {
+      .icono {
+        color: $text-color;
+      }
+    }
+
+    span.holder {
+      background-color: $bakcground-color;
+      color: $text-color;
+    }
+  }
+
+  .container-checkbox {
+    &:hover {
+      span {
+        color: $azul;
+      }
+    }
+
+    .icono {
+      color: $text-color;
+    }
+
+    .text {
+      color: $text-color;
+    }
+
+    @keyframes check-animation {
+      0% {
+        transform: scale(1);
+        opacity: 0.2;
+      }
+      50% {
+        transform: scale(1.3);
+        color: $azul;
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .submit-container {
+    button {
+      background-color: transparent;
+      border: 1px solid $border-color;
+
+      color: $text-color;
+
+      $text-color-btn: #fff;
+      &:active {
+        background-color: rgba($azul, 7);
+        color: $text-color-btn;
+      }
+
+      &:disabled {
+        background-color: rgba($azul, 3);
+        color: $text-color-btn;
+      }
+
+      &:focus {
+        background-color: rgba($azul, 7);
+        color: $text-color-btn;
+      }
+
+      &:hover {
+        background-color: rgba($azul, 7);
+        color: $text-color-btn;
+      }
+    }
+  }
+
+  .login {
+    border: 1px solid #fff;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+
+    form {
+      .container-recovery {
+        button {
+          background-color: transparent;
+
+          color: $text-color;
+
+          &:active {
+            color: $azul;
+          }
+        }
+      }
+    }
+  }
+
+  .reset {
+    .title {
+      color: $text-color;
+
+      button {
+        background-color: transparent;
+        color: $text-color;
+
+        &.active {
+          &:before {
+            border: 4px solid transparent;
+          }
+        }
+      }
+
+      hr {
+        background-color: $azul;
+        border: 9px solid $gris !important;
+        border-bottom: none !important;
+        border-top: none !important;
+      }
+    }
+
+    .container-reset {
+      button {
+        background-color: $azul;
+
+        &:hover {
+          background: $amarillo;
+        }
+
+        .icono {
+          color: $text-color;
+        }
+      }
+    }
+  }
+
+  @keyframes circle {
+    0% {
+      border-color: transparent;
+      transform: rotate(0deg);
+    }
+
+    25% {
+      border-color: transparent $azul transparent transparent;
+    }
+
+    50% {
+      border-color: transparent $azul $azul transparent;
+    }
+
+    75% {
+      border-color: transparent $azul $azul;
+    }
+
+    to {
+      border-color: $text-color;
+      transform: rotate(-700deg);
+    }
+  }
+
+  /* Logica para voltear la tarjeta */
+
+  .container-form-all {
+    &.right-active {
+      &.active {
+        .right {
+          animation: colorChange 1s forwards;
+        }
+      }
+
+      .right {
+        border: 1px solid #fff;
+      }
+    }
+
+    &.front-active {
+      &.active {
+        .front {
+          animation: colorChange 1s forwards;
+        }
+      }
+
+      .front {
+        border: 1px solid #fff;
+      }
+    }
+
+    &.left-active {
+      transform: rotateY(-180deg);
+
+      &.active {
+        .left {
+          animation: colorChange 1s forwards;
+        }
+      }
+
+      .left {
+        border: 1px solid #fff;
+        transition: all ease 1.6s;
+        z-index: 4;
+      }
+
+      .right {
+        display: none;
+        z-index: 1;
+      }
+    }
+
+    .login,
+    .register,
+    .left {
+      border: 1px solid #fff;
+
+      box-shadow: $box-shadow;
+    }
+
+    .left {
+      .text-recovery {
+        background-color: transparent;
+        border: none;
+        color: $text-color;
+      }
+    }
+  }
+
+  @keyframes colorChange {
+    0% {
+      border-color: $text-color;
+    }
+    50% {
+      border-color: $azul;
+    }
+    100% {
+      border-color: $text-color;
+    }
+  }
+}
