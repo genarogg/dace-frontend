@@ -43,7 +43,7 @@ const Login: React.FC<LoginProps> = ({ cardState }) => {
         <ContainerInput
           type="email"
           name="email"
-          placeholder={"Nombre"}
+          placeholder={"Email"}
           icono={<BsEnvelopeFill />}
           value={formData.email}
           valueChange={(e) =>

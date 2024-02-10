@@ -71,7 +71,7 @@ const Register: React.FC<RegisterProps> = ({ cardState }) => {
         <ContainerInput
           type="password"
           name="passwordRepeat"
-          placeholder={"Repetir Email"}
+          placeholder={"Repetir Contraseña"}
           icono={<MdLock />}
           value={formData.passwordRepeat}
           valueChange={(e) =>
