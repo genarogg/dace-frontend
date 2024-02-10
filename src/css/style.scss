@@ -1,6 +1,5 @@
 body {
   font-family: "Nunito", "Poppins", sans-serif;
-  background-color: #fff;
 }
 
 .icono {
@@ -8,10 +7,20 @@ body {
   font-size: 20px;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
 @import "lib/normalize";
 @import "../components/views/home/form/css/form";
 @import "../components/layout/css/layout";
 @import "../components/views/home/css/home";
+
+@import "themes/theme";
 
 /* .containerAll {
   display: flex;

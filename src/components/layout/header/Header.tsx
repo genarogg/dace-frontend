@@ -23,8 +23,8 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
       <div className="desktop-header">
         <div className="titulo">
           <h1>
-            UNIVERSIDAD <br />
-            <span className="unerg">RÓMULO GALLEGOS</span>
+            UNERG | DACE
+            
           </h1>
         </div>
         <nav>

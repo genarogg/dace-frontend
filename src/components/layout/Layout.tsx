@@ -7,6 +7,8 @@ interface LayoutProps {
   where?: string;
 }
 
+import { MdOutlineLock } from "react-icons/md";
+
 const Layout: React.FunctionComponent<LayoutProps> = ({
   children,
   where = " ",

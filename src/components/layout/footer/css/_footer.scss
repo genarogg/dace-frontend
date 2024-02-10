@@ -1,19 +1,19 @@
-.desktop-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  height: inherit;
+.footer-container {
+  .desktop-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: inherit;
 
-  .titulo {
-    color: #fff;
-    color: #fff;
-    font-size: 10px;
-    font-weight: 600;
-    
-  }
+    button {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
 
-  nav {
     ul {
       display: flex;
       justify-content: center;
@@ -22,7 +22,6 @@
       li {
         list-style: none;
         margin: 0 10px;
-        
 
         a {
           color: #fff;
