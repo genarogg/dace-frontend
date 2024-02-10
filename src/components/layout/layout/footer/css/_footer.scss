@@ -18,7 +18,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
+      padding: 0;
       li {
         list-style: none;
         margin: 0 10px;
@@ -30,6 +30,21 @@
           text-decoration: none;
           text-transform: uppercase;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .footer-container {
+    .desktop-footer {
+      display: grid;
+      place-content: center;
+      margin: 25px 0px;
+      padding: 0;
+
+      ul li {
+        margin: 0 20px;
       }
     }
   }

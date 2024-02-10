@@ -10,26 +10,17 @@ body {
 button {
   background-color: transparent;
   border: none;
-
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 @import "lib/normalize";
 @import "../components/views/home/form/css/form";
-@import "../components/layout/css/layout";
+@import "../components/layout/layout/css/layout";
 @import "../components/views/home/css/home";
 
 @import "themes/theme";
 
-/* .containerAll {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-  background-color: #10111e;
-} */
 @media screen and (max-width: 480px) {
   .container-form-all .login,
   .container-form-all .register,

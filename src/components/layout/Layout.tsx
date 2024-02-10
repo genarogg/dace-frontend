@@ -1,13 +1,13 @@
 import { ToastContainer } from "react-toastify";
-import Header from "./header/Header";
-import Footer from "./footer/Footer";
+import Header from "./layout/header/Header";
+import Footer from "./layout/footer/Footer";
 
 interface LayoutProps {
   children: React.ReactNode;
   where?: string;
 }
 
-import { MdOutlineLock } from "react-icons/md";
+
 
 const Layout: React.FunctionComponent<LayoutProps> = ({
   children,
