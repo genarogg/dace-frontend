@@ -1,34 +1,31 @@
 .desktop-header {
-  display: flex;
   align-items: center;
+  display: flex;
+  height: inherit;
   justify-content: space-between;
   padding: 0 40px;
-  height: inherit;
 
   .titulo {
     color: #fff;
-    color: #fff;
     font-size: 10px;
     font-weight: 600;
-    
   }
 
   nav {
     ul {
+      align-items: center;
       display: flex;
       justify-content: center;
-      align-items: center;
 
       li {
         list-style: none;
         margin: 0 10px;
-        
 
         a {
           color: #fff;
+          text-decoration: none;
           font-size: 14px;
           font-weight: 600;
-          text-decoration: none;
           text-transform: uppercase;
         }
       }

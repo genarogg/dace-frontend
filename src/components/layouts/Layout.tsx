@@ -7,8 +7,6 @@ interface LayoutProps {
   where?: string;
 }
 
-
-
 const Layout: React.FunctionComponent<LayoutProps> = ({
   children,
   where = " ",

@@ -1,4 +1,4 @@
-import React from "react";
+import { A } from "@nano";
 
 interface HeaderProps {
   children?: React.ReactNode;
@@ -13,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
   const Li: React.FC<LiProps> = ({ link, text }) => {
     return (
       <li>
-        <a href={link}>{text}</a>
+        <A type="a" to={link} text={text} />
       </li>
     );
   };
@@ -22,10 +22,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
     <header className="header-container">
       <div className="desktop-header">
         <div className="titulo">
-          <h1>
-            UNERG | DACE
-            
-          </h1>
+          <h1>UNERG | DACE</h1>
         </div>
         <nav>
           <ul>

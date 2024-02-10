@@ -16,10 +16,10 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@nano": ["./src/components/nano/Nano.tsx"],
-      "@layout": ["./src/components/layout/Layout.tsx"],
+      "@layout": ["./src/components/layouts/Layout.tsx"],
       "@views/*": ["./src/components/views/*"],
 
-      "@css/*": ["./src/css/*"],
+      "@css/*": ["./src/css/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
