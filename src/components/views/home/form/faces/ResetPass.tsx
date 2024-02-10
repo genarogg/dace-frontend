@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import $ from "../function/$";
 
 import ContainerInput from "./global/ContainerInput";
 
@@ -6,7 +7,6 @@ import { BsEnvelopeFill } from "react-icons/bs";
 import { FaArrowLeft } from "react-icons/fa6";
 import { Icono } from "@nano";
 import { IoSend } from "react-icons/io5";
-import $ from "../function/$";
 
 interface ResetPassProps {
   cardState: (css: string) => void;

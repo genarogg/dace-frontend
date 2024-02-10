@@ -1,15 +1,11 @@
 import React, { useState } from "react";
-
+import HeadBtn from "./global/HeadBtn";
 import ContainerInput from "./global/ContainerInput";
-import CheckBox from "./global/CheckBox";
 
 import { BsEnvelopeFill } from "react-icons/bs";
 import { MdLock } from "react-icons/md";
-
-import HeadBtn from "./global/HeadBtn";
 import { HiIdentification } from "react-icons/hi2";
 import { BsFillEnvelopeHeartFill } from "react-icons/bs";
-import { MdOutlineLock } from "react-icons/md";
 import { IoMdUnlock } from "react-icons/io";
 interface RegisterProps {
   cardState: (css: string) => void;
