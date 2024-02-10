@@ -30,3 +30,12 @@ button {
   width: 100%;
   background-color: #10111e;
 } */
+@media screen and (max-width: 480px) {
+  .container-form-all .login,
+  .container-form-all .register,
+  .container-form-all .left {
+    width: 320px;
+    min-width: 320px;
+    max-width: 320px;
+  }
+}
