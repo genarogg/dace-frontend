@@ -1,0 +1,25 @@
+@import "./global/variables";
+@import "./global/mixin";
+
+@import "../siderbar/css/sideBar";
+
+.dashboard {
+  @include center-x;
+
+  * {
+    transition: all 0.5s ease;
+  }
+
+  .container-dashboard-all {
+    min-width: 1200px;
+    min-height: 600px;
+    border: 1px solid #fff;
+    border-radius: $border-radius;
+
+    display: flex;
+
+    overflow: hidden;
+
+    position: relative;
+  }
+}

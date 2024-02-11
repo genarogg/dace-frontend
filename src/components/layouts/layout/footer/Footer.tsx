@@ -23,8 +23,8 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
       <div className="desktop-footer">
         <button>Ver videos demostrativos</button>
         <ul>
-          <Li to="#" ico={<FaXTwitter />} />
           <Li to="#" ico={<FaFacebookF />} />
+          <Li to="#" ico={<FaXTwitter />} />
           <Li to="#" ico={<FaInstagram />} />
         </ul>
       </div>

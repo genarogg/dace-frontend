@@ -15,6 +15,10 @@ button {
 }
 
 @import "lib/normalize";
+
+@import "global/mixin";
+@import "global/variables";
+
 @import "../components/views/home/form/css/form";
 @import "../components/layouts/layout/css/layout";
 @import "../components/views/home/css/home";
@@ -30,3 +34,5 @@ button {
     max-width: 320px;
   }
 }
+
+@import "../components/views/dashboard/css/dashboard";

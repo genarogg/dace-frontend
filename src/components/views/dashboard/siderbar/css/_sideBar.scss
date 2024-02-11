@@ -1,0 +1,66 @@
+.dashboard {
+  .container-aside {
+    @include width(220px);
+
+    position: absolute;
+    left: 0;
+    height: 100%;
+    box-shadow: $box-shadow;
+    border-right: $border;
+    background-color: #0e0f1a;
+    .sidebar {
+
+      ul {
+        &.container-lists {
+          display: grid;
+          gap: 10px;
+          padding-left: 15px;
+        }
+        li {
+          list-style: none;
+        }
+      }
+
+      .lista {
+        .section {
+          color: $text-color;
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: bold;
+          text-transform: uppercase;
+          margin: 10px 0;
+        }
+
+        .group-element {
+          margin-left: 6px;
+          border-left: 4px solid rgba($azul, 1);
+          /* border-radius: 5px; */
+          padding-left: 0px;
+          .element {
+            text-transform: capitalize;
+            height: 35px;
+            /* margin: 10px 0; */
+            /* padding:  10px 0; */
+
+            @include center-y;
+
+            color: $text-color;
+
+            width: 100%;
+
+            &:hover {
+              background-color: rgba($azul, 0.5);
+            }
+            .icono {
+              margin-right: 7px;
+            }
+            .icono,
+            .text {
+              @include center-flex;
+            }
+          }
+        }
+      }
+    }
+  }
+}

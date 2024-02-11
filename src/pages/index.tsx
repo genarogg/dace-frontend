@@ -1,7 +1,7 @@
 import Home from "@views/home/Home";
 
-const Index = () => {
+const index = () => {
   return <Home />;
 };
 
-export default Index;
+export default index;

@@ -37,10 +37,12 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
       <input
         type={type}
         name={name}
+        required
         id={id}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         onChange={handleInputChange}
+
         value={value as string | number | readonly string[] | undefined}
       />
       <span className={`holder ${hasContent ? "has-content" : ""}`}>
