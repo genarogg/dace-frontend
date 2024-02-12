@@ -19,6 +19,8 @@
       "@layout": ["./src/components/layouts/Layout.tsx"],
       "@views/*": ["./src/components/views/*"],
 
+      "@fn/*": ["./src/functions/*"],
+
       "@css/*": ["./src/css/*"]
     }
   },
