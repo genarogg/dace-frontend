@@ -8,32 +8,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
     <Layout where="dashboard">
       <div className={`container-dashboard-all`} id="containerDashboardAll">
         <SideBar />
-        <div className="container-img" style={{marginLeft:"200px"}}>
-          <div
-            className=""
-            style={{ width: "100px", height: "100px", backgroundColor: "#333" }}
-          ></div>
-          <div
-            className=""
-            style={{ width: "100px", height: "100px", backgroundColor: "#333" }}
-          ></div>
-          <div
-            className=""
-            style={{ width: "100px", height: "100px", backgroundColor: "#333" }}
-          ></div>
-          <div
-            className=""
-            style={{ width: "100px", height: "100px", backgroundColor: "#333" }}
-          ></div>
-          <div
-            className=""
-            style={{ width: "100px", height: "100px", backgroundColor: "#333" }}
-          ></div>
-          <div
-            className=""
-            style={{ width: "100px", height: "100px", backgroundColor: "#333" }}
-          ></div>
-        </div>
+       
       </div>
     </Layout>
   );
