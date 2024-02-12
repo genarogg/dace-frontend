@@ -1,3 +1,4 @@
+
 import { Icono } from "@nano";
 
 interface ElementProps {
@@ -9,7 +10,7 @@ const Element: React.FC<ElementProps> = ({ text, icono }) => {
   return (
     <button className="element">
       <Icono icono={icono} />
-      <span>{text}</span>
+      <span className="text">{text}</span>
     </button>
   );
 };
