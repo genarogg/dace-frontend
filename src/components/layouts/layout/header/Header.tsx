@@ -2,6 +2,8 @@ import React from "react";
 import { useQuery } from "react-query";
 import { A, Gravatar } from "@nano";
 
+import { CSSTransition } from 'react-transition-group';
+
 interface HeaderProps {
   children?: React.ReactNode;
   where?: string;
@@ -42,17 +44,23 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
           </h1>
         </div>
         <nav>
-          {where === "dashboard" ? (
-            <ul>
-              {user && (
-                <li key={user[0].id}>
-                  {user[0].firstName} {user[0].firstNurname}
+          {isLoading ? (
+            <ul></ul>
+          ) : where === "dashboard" && user ? (
+            <CSSTransition in={true} timeout={500} classNames="fade" appear>
+              <ul key={user[0].id}>
+                <li>
+                  <span className="name">
+                    {user[0].firstName} {user[0].firstNurname}
+                  </span>
+                </li>
+                <li>
                   <div className="user-img">
                     <Gravatar email={user[0].email} />
                   </div>
                 </li>
-              )}
-            </ul>
+              </ul>
+            </CSSTransition>
           ) : (
             <ul>
               <Li link="http://www.unerg.edu.ve/" text="unerg" />

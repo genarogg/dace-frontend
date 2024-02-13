@@ -1,5 +1,6 @@
 import React from "react";
 import md5 from "crypto-js/md5";
+import Image from "next/image";
 
 interface GravatarProps {
   email: string;

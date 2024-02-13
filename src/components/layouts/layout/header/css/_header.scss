@@ -29,6 +29,35 @@
           font-weight: bold;
           text-transform: uppercase;
         }
+
+        .name {
+          color: #fff;
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+
+        .user-img {
+          border-radius: 50%;
+          overflow: hidden;
+          @include cuadrado(40px);
+
+          img {
+            @include cuadrado(40px);
+          }
+        }
+      }
+
+      .fade-appear,
+      .fade-enter {
+        opacity: 0;
+      }
+
+      .fade-appear-active,
+      .fade-enter-active {
+        opacity: 1;
+        transition: opacity 500ms;
       }
     }
   }
