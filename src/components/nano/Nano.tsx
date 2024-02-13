@@ -1,3 +1,5 @@
 import Icono from "./Icono";
 import A from "./A";
-export { A, Icono };
+import Gravatar from "./Gravatar";
+
+export { A, Icono, Gravatar };

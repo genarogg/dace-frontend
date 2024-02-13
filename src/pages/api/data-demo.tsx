@@ -1,15 +1,15 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-const users = [
+const user = [
   {
     "1": 1,
     email: "genarrogg@gmail.com",
 
-    "first-name": "Genaro",
-    "second-name": "Octavio",
+    firstName: "Genaro",
+    secondName: "Octavio",
 
-    "first-surname": "Gonzalez",
-    "second-surname": "Gonzalez",
+    firstNurname: "Gonzalez",
+    secondSurname: "Gonzalez",
 
     birthdate: "09/12/1996",
 
@@ -24,5 +24,5 @@ const users = [
 ];
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json(users);
+  res.status(200).json(user);
 }

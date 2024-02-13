@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-
-import { A } from "@nano";
+import React from "react";
+import { useQuery } from "react-query";
+import { A, Gravatar } from "@nano";
 
 interface HeaderProps {
   children?: React.ReactNode;
@@ -21,7 +21,16 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
     );
   };
 
- 
+  const fetchUsers = async () => {
+    const res = await fetch("/api/data-demo");
+    return res.json();
+  };
+
+  const { data: user, isLoading } = useQuery("users", fetchUsers);
+
+  /*  if (isLoading) {
+    return <div>Loading...</div>;
+  } */
 
   return (
     <header className="header-container">
@@ -33,7 +42,18 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
           </h1>
         </div>
         <nav>
-          {where === "dashboard" ? null : (
+          {where === "dashboard" ? (
+            <ul>
+              {user && (
+                <li key={user[0].id}>
+                  {user[0].firstName} {user[0].firstNurname}
+                  <div className="user-img">
+                    <Gravatar email={user[0].email} />
+                  </div>
+                </li>
+              )}
+            </ul>
+          ) : (
             <ul>
               <Li link="http://www.unerg.edu.ve/" text="unerg" />
               <Li link="http://www.opsu.gob.ve/" text="opsu" />
