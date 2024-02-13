@@ -23,6 +23,27 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
     );
   };
 
+  const Title = () => {
+    return (
+      <div className="titulo">
+        <h1>
+          UNERG <span style={{ position: "relative", bottom: "1px" }}>|</span>{" "}
+          DACE
+        </h1>
+      </div>
+    );
+  };
+
+  const Avatar = () => {
+    return (
+      <li>
+        <div className="user-img">
+          <Gravatar email={user[0].email} />
+        </div>
+      </li>
+    );
+  };
+
   const fetchUsers = async () => {
     const res = await fetch("/api/data-demo");
     return res.json();
@@ -33,12 +54,7 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
   return (
     <header className="header-container">
       <div className="desktop-header">
-        <div className="titulo">
-          <h1>
-            UNERG <span style={{ position: "relative", bottom: "1px" }}>|</span>{" "}
-            DACE
-          </h1>
-        </div>
+        <Title />
         <nav>
           {isLoading ? (
             <ul></ul>
@@ -49,11 +65,7 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
                   <span className="name">
                     {user[0].firstName} {user[0].firstNurname}
                   </span>
-                </li>
-                <li>
-                  <div className="user-img">
-                    <Gravatar email={user[0].email} />
-                  </div>
+                  <Avatar />
                 </li>
               </ul>
             </CSSTransition>

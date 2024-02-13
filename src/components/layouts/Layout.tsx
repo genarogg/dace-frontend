@@ -1,23 +1,25 @@
 import { ToastContainer } from "react-toastify";
-import Header from "./layout/header/Header";
+
 import Footer from "./layout/footer/Footer";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 interface LayoutProps {
   children: React.ReactNode;
   where?: string;
+  header?: React.ReactNode;
 }
 
 const queryClient = new QueryClient();
 
 const Layout: React.FunctionComponent<LayoutProps> = ({
   children,
+  header,
   where = "",
 }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <div className={`container-all initial ${where}`}>
-        <Header where={where} />
+        {header}
         <main>{children}</main>
         <Footer />
       </div>
