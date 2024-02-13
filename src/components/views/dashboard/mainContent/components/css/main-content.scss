@@ -1,3 +1,30 @@
+.dashboard .container-main-content {
+  margin-left: 250px;
+  width: 100%;
+  padding: 25px;
+  overflow: hidden;
+  overflow-y: auto;
+  min-height: 600px;
+  background-color: #fff;
+}
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
 .dashboard {
   * {
     transition: all 0.5s ease;
@@ -68,3 +95,6 @@
     }
   }
 }
+
+
+

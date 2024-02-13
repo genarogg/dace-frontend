@@ -1,14 +1,4 @@
-import { FaConnectdevelop } from "react-icons/fa6";
-import { Icono } from "@nano";
-import { IoMdLock } from "react-icons/io";
-
-import { AiOutlineLogout } from "react-icons/ai";
-import { MdOutlineUploadFile } from "react-icons/md";
 import Btn from "./global/Btn";
-
-import Image from "next/image";
-
-import { TiUser } from "react-icons/ti";
 
 interface InitialProps {
   setContext: React.Dispatch<React.SetStateAction<string>>;

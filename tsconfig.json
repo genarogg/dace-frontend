@@ -18,6 +18,7 @@
       "@nano": ["./src/components/nano/Nano.tsx"],
       "@layout": ["./src/components/layouts/Layout.tsx"],
       "@views/*": ["./src/components/views/*"],
+      "@form/*": ["./src/components/views/home/form/faces/global/*"],
 
       "@fn/*": ["./src/functions/*"],
 

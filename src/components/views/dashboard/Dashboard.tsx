@@ -21,6 +21,8 @@ interface DashboardProps {}
 const Dashboard: React.FC<DashboardProps> = () => {
   const [context, setContext] = useState("initial");
 
+
+
   return (
     <Layout where="dashboard">
       <div className={`container-dashboard-all`} id="containerDashboardAll">
