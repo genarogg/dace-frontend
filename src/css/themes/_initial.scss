@@ -1,21 +1,18 @@
-.initial {
-  $azul: #4153f2;
-  $rojo: #f24146;
-  $gris: #10111e;
-  $amarillo: #f2cb41;
-  $verde: #41f271;
+$azul: #4153f2;
+$rojo: #f24146;
+$gris: #10111e;
+$amarillo: #f2cb41;
+$verde: #41f271;
 
-  $azul-unerg: #3d65fd;
+$azul-unerg: #3d65fd;
 
-  $border-radius: 10px;
-  $box-shadow: 0px 0 30px rgba(#012970, 0.2);
-  $border-color: #999;
+$border-radius: 10px;
+$box-shadow: 0px 0 30px rgba(#012970, 0.2);
+$border-color: #999;
 
+/* --- variables del theme --- */
+$bakcground-color: #f6f9ff;
+$text-color: $azul-unerg;
 
-
-  /* --- variables del theme --- */
-  $bakcground-color: #f6f9ff;
-  $text-color: $azul-unerg;
-  
-  @import "./initial/home.scss";
-}
+@import "./initial/home.scss";
+@import "./initial/dashboard";

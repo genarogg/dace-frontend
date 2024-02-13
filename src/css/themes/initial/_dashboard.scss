@@ -1,0 +1,77 @@
+.initial {
+  &.dashboard {
+    .container-aside {
+      box-shadow: $box-shadow;
+      border-right: $border;
+      background-color: transparent;
+      .sidebar {
+        .lista {
+          .section {
+            color: #fff;
+
+            background-color: rgba($azul, 1);
+            border: 1px solid transparent;
+
+            .icono {
+              color: #fff;
+            }
+          }
+
+          .group-element {
+            .element {
+              color: #fff;
+              color: $text-color;
+
+              &:hover {
+                background-color: rgba($azul, 0.1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.dashboard {
+    .container-main {
+      .main {
+        button {
+          box-shadow: $box-shadow;
+          background-color: #fff;
+
+          border: 1px solid transparent;
+
+          &:hover {
+            background-color: rgba($azul, 1);
+            border: 1px solid rgba(#000, 0.4);
+
+            .container-text {
+              .text {
+                color: #fff;
+              }
+            }
+          }
+
+          &:active {
+            background-color: rgba($azul, 0.9);
+          }
+
+          .container-text {
+            .text {
+              color: $azul;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.dashboard {
+    .container-dashboard-all {
+      border: 1px solid #fff;
+      border-radius: $border-radius;
+      box-shadow: $box-shadow;
+      background-color: #fff;
+    }
+  }
+}

@@ -7,6 +7,9 @@
   overflow: hidden;
   overflow-y: auto;
   @include height(600px);
+  background-color: #fff;
+
+ 
 }
 .fade-enter {
   opacity: 0;

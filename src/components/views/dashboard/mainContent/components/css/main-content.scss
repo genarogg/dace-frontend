@@ -4,7 +4,6 @@
   }
 
   .container-main {
-    /* @include distribucion-responsiva(250px, 1fr); */
     gap: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -14,8 +13,6 @@
     .main {
       @include cuadrado(250px, 200px);
 
-      overflow: hidden;
-
       button {
         background-color: rgba($azul, 0.3);
         width: 100%;
@@ -24,8 +21,24 @@
         cursor: pointer;
         border: $border;
         border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        border-radius: $border-radius;
+        display: flex;
+        overflow: hidden;
+
+        flex-direction: column;
+        align-items: center;
+
+        justify-content: flex-start;
+
         &:hover {
           background-color: rgba($azul, 0.6);
+
+          .container-text {
+            .text {
+              color: $azul;
+            }
+          }
         }
 
         &:active {
@@ -33,11 +46,7 @@
           transform: scale(0.9);
         }
         .container-icono {
-          .icono {
-            font-size: 100px;
-            color: #fff;
-            @include center-flex;
-          }
+          margin-top: 20px;
         }
 
         .container-text {
@@ -46,7 +55,7 @@
           justify-content: center;
 
           .text {
-            font-size: 20px;
+            font-size: 15px;
             color: #fff;
             text-align: center;
             text-transform: uppercase;

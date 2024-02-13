@@ -1,16 +1,18 @@
 import React from "react";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import Demo from "./components/Demo";
+import Initial from "./components/Initial";
 
 interface MainContentProps {
   context: string;
+  setContext: () => void;
 }
 
-const MainContent: React.FC<MainContentProps> = ({ context }) => {
+const MainContent: React.FC<MainContentProps> = ({ context, setContext }) => {
   const renderComponent = () => {
     switch (context) {
       case "initial":
-        return <Demo />;
+        return <Initial setContext={setContext} />;
       case "mis-datos":
         return <Demo />;
       case "cambio-de-email":
