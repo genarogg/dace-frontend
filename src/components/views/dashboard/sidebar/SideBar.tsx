@@ -9,12 +9,6 @@ const SideBar: React.FC<SideBarProps> = ({ children }) => {
   return (
     <div className="container-aside">
       <aside className="sidebar">
-        {/* <div className="home">
-          <button>
-            <Icono icono={<IoIosHome />} />
-            <span>Inicio</span>
-          </button>
-        </div> */}
         <nav>
           <ul className="container-lists">{children}</ul>
         </nav>

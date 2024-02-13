@@ -14,6 +14,7 @@
       flex-direction: column;
       align-items: center;
 
+      padding-top: 25px;
       /* .home {
         display: grid;
         grid-gap: 10px;
@@ -75,6 +76,12 @@
 
           /* a */
           border-radius: $border-radius;
+          cursor: initial;
+          &.active {
+            cursor: pointer;
+            margin-top: 0;
+          }
+
           .icono {
             margin-right: 7px;
             @include center-flex;

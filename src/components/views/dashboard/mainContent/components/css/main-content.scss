@@ -1,0 +1,61 @@
+.dashboard {
+  * {
+    transition: all 0.5s ease;
+  }
+
+  .container-main {
+    /* @include distribucion-responsiva(250px, 1fr); */
+    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    row-gap: 35px;
+
+    .main {
+      @include cuadrado(250px, 200px);
+
+      overflow: hidden;
+
+      button {
+        background-color: rgba($azul, 0.3);
+        width: 100%;
+        height: 100%;
+        position: relative;
+        cursor: pointer;
+        border: $border;
+        border-radius: $border-radius;
+        &:hover {
+          background-color: rgba($azul, 0.6);
+        }
+
+        &:active {
+          background-color: rgba($azul, 0.9);
+          transform: scale(0.9);
+        }
+        .container-icono {
+          .icono {
+            font-size: 100px;
+            color: #fff;
+            @include center-flex;
+          }
+        }
+
+        .container-text {
+          margin-top: 10px;
+          display: flex;
+          justify-content: center;
+
+          .text {
+            font-size: 20px;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            position: absolute;
+            bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,42 +1,38 @@
+import React from "react";
+import { SwitchTransition, CSSTransition } from "react-transition-group";
+import Demo from "./components/Demo";
+
 interface MainContentProps {
   context: string;
 }
 
 const MainContent: React.FC<MainContentProps> = ({ context }) => {
-  switch (context) {
-    case "initial":
-      return (
-        <div className="container-img" style={{ marginLeft: "200px" }}>
-          <div
-            className=""
-            style={{ width: "100px", height: "100px", backgroundColor: "#333" }}
-          ></div>
-          <div
-            className=""
-            style={{ width: "100px", height: "100px", backgroundColor: "#333" }}
-          ></div>
-          <div
-            className=""
-            style={{ width: "100px", height: "100px", backgroundColor: "#333" }}
-          ></div>
-          <div
-            className=""
-            style={{ width: "100px", height: "100px", backgroundColor: "#333" }}
-          ></div>
-          <div
-            className=""
-            style={{ width: "100px", height: "100px", backgroundColor: "#333" }}
-          ></div>
-          <div
-            className=""
-            style={{ width: "100px", height: "100px", backgroundColor: "#333" }}
-          ></div>
-        </div>
-      );
-    // ...
-    default:
-      return <p>hola</p>;
-  }
+  const renderComponent = () => {
+    switch (context) {
+      case "initial":
+        return <Demo />;
+      case "mis-datos":
+        return <Demo />;
+      case "cambio-de-email":
+        return <Demo />;
+      case "cambio-de-contrasena":
+        return <Demo />;
+      case "consultar-horario":
+        return <Demo />;
+      case "cargar-notas":
+        return <Demo />;
+      default:
+        return <Demo />;
+    }
+  };
+
+  return (
+    <SwitchTransition>
+      <CSSTransition key={context} timeout={500} classNames="fade">
+        {renderComponent()}
+      </CSSTransition>
+    </SwitchTransition>
+  );
 };
 
 export default MainContent;

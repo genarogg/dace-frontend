@@ -60,7 +60,9 @@ const Dashboard: React.FC<DashboardProps> = () => {
             />
           </Section>
         </SideBar>
-        <MainContent context={context} />
+        <div className="container-main-content">
+          <MainContent context={context} />
+        </div>
       </div>
     </Layout>
   );

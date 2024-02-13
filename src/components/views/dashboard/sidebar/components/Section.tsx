@@ -17,7 +17,7 @@ const Section: React.FC<SectionProps> = ({
     <div className="lista">
       <li>
         <button
-          className="section"
+          className={`section ${setContext ? "active" : ""}`}
           onClick={() => {
             setContext && setContext("initial");
           }}
