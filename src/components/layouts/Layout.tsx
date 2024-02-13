@@ -9,12 +9,12 @@ interface LayoutProps {
 
 const Layout: React.FunctionComponent<LayoutProps> = ({
   children,
-  where = " ",
+  where = "",
 }) => {
   return (
     <>
       <div className={`container-all initial ${where}`}>
-        <Header />
+        <Header where={where}/>
         <main>{children}</main>
         <Footer />
       </div>
