@@ -5,7 +5,7 @@ import Initial from "./components/Initial";
 
 interface MainContentProps {
   context: string;
-  setContext: () => void;
+  setContext: any;
 }
 
 const MainContent: React.FC<MainContentProps> = ({ context, setContext }) => {
