@@ -5,7 +5,7 @@ import Initial from "./components/Initial";
 
 interface MainContentProps {
   context: string;
-  setContext: any;
+  setContext: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const MainContent: React.FC<MainContentProps> = ({ context, setContext }) => {
