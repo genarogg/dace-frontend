@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { A, Gravatar } from "@nano";
 
-import { CSSTransition } from 'react-transition-group';
+import { CSSTransition } from "react-transition-group";
 
 interface HeaderProps {
   children?: React.ReactNode;
@@ -29,10 +29,6 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
   };
 
   const { data: user, isLoading } = useQuery("users", fetchUsers);
-
-  /*  if (isLoading) {
-    return <div>Loading...</div>;
-  } */
 
   return (
     <header className="header-container">
