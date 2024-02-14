@@ -4,13 +4,14 @@ import { A, Gravatar, BtnHamburgues } from "@nano";
 
 import { CSSTransition } from "react-transition-group";
 import SideBar from "./sidebar/SideBar";
-import StateDashboard from "./StateDashboard";
+
 interface HeaderProps {
   children?: React.ReactNode;
   where?: string;
+  setContext: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Header: React.FC<HeaderProps> = ({ children, where }) => {
+const Header: React.FC<HeaderProps> = ({ children, where,setContext }) => {
   interface LiProps {
     link: string;
     text: string;
@@ -55,7 +56,7 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
   const { data: user } = useQuery("users", fetchUsers);
 
   const [isActive, setIsActive] = useState(false);
-  const { setContext } = StateDashboard();
+
 
   const toggleActive = () => {
     setIsActive(!isActive);

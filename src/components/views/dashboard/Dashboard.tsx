@@ -7,17 +7,18 @@ import MainContent from "./mainContent/MainContent";
 
 import Header from "./Header";
 
-import StateDashboard from "./StateDashboard";
-
 interface DashboardProps {}
 
 const Dashboard: React.FC<DashboardProps> = () => {
   /*   const [context, setContext] = useState("initial"); */
-  const { context, setContext } = StateDashboard();
+  const [context, setContext] = useState("initial");
   return (
-    <Layout where="dashboard" header={<Header where="dashboard" />}>
+    <Layout
+      where="dashboard"
+      header={<Header where="dashboard" setContext={setContext} />}
+    >
       <div className={`container-dashboard-all`} id="containerDashboardAll">
-        <SideBar setContext={setContext} css={"main-content-sidebar"}/>
+        <SideBar setContext={setContext} css={"main-content-sidebar"} />
         <div className="container-main-content">
           <MainContent context={context} setContext={setContext} />
         </div>
