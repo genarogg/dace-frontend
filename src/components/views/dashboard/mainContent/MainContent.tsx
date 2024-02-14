@@ -1,7 +1,6 @@
 import React from "react";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
-import Initial from "./components/Initial";
 
 interface MainContentProps {
   context: string;
@@ -12,7 +11,7 @@ const MainContent: React.FC<MainContentProps> = ({ context, setContext }) => {
   const renderComponent = () => {
     switch (context) {
       case "initial":
-        return <p>d</p>;
+        return <p>holla</p>;
     }
   };
 
