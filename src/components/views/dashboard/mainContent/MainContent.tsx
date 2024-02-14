@@ -2,6 +2,8 @@ import React from "react";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import Demo from "./components/Demo";
 import Initial from "./components/Initial";
+import NewPass from "./components/NewPass";
+import Perfil from "./components/Perfil";
 
 interface MainContentProps {
   context: string;
@@ -14,11 +16,11 @@ const MainContent: React.FC<MainContentProps> = ({ context, setContext }) => {
       case "initial":
         return <Initial setContext={setContext} />;
       case "mis-datos":
-        return <Demo />;
+        return <Perfil />;
       case "cambio-de-email":
         return <Demo />;
       case "cambio-de-contrasena":
-        return <Demo />;
+        return <NewPass />;
       case "consultar-horario":
         return <Demo />;
       case "cargar-notas":
