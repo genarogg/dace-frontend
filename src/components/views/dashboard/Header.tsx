@@ -1,8 +1,5 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { A, Gravatar, BtnHamburgues } from "@nano";
-
-import { CSSTransition } from "react-transition-group";
 
 interface HeaderProps {
   children?: React.ReactNode;
