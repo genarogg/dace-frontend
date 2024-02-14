@@ -12,7 +12,7 @@ const MainContent: React.FC<MainContentProps> = ({ context, setContext }) => {
   const renderComponent = () => {
     switch (context) {
       case "initial":
-        return <Initial setContext={setContext} />;
+        return <p>d</p>;
     }
   };
 
