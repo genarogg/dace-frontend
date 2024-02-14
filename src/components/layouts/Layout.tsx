@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 interface LayoutProps {
   children: React.ReactNode;
   where?: string;
-  header?: React.ReactNode;
+  header: React.ReactNode;
 }
 
 const queryClient = new QueryClient();
