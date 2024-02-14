@@ -1,8 +1,10 @@
 import { useState } from "react";
 
-interface BtnHamburguesProps {}
+interface BtnHamburguesProps {
+  fn?: () => void;
+}
 
-const BtnHamburgues: React.FC<BtnHamburguesProps> = () => {
+const BtnHamburgues: React.FC<BtnHamburguesProps> = ({fn}) => {
   const [isActive, setIsActive] = useState(false);
 
   const toggleActive = () => {
@@ -11,9 +13,8 @@ const BtnHamburgues: React.FC<BtnHamburguesProps> = () => {
 
   return (
     <div
-      onClick={() => toggleActive()}
-      className={`btnX btnMenu ${isActive ? "active" : ""}`}
-    >
+    onClick={() => {toggleActive(); fn && fn()}}
+    className={`btnX btnMenu ${isActive ? "active" : ""}`} >
       <span></span>
       <span></span>
       <span></span>

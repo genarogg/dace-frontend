@@ -2,6 +2,7 @@
 @import "./global/mixin";
 
 @import "../sidebar/css/sideBar";
+@import "../sidebar/css/sideBarMiniMenu";
 @import "../mainContent/components/css/main-content.scss";
 
 .dashboard {
@@ -23,6 +24,10 @@
     position: relative;
 
     box-shadow: $box-shadow;
+
+    /* &.active{
+      
+    } */
   }
 }
 
@@ -38,11 +43,9 @@
   }
 }
 
-@media screen and (max-width: 1110px) {
-  .dashboard {
-    .container-main {
-      grid-template-columns: 1fr 1fr;
-    }
+@include between(799px, 840px) {
+  .dashboard .container-main {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -61,6 +64,6 @@
       background-color: transparent;
     }
   }
-
- 
 }
+
+

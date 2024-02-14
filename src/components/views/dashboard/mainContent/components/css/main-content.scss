@@ -33,7 +33,7 @@
   .container-main {
     gap: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     justify-items: center;
     row-gap: 35px;
 
@@ -98,3 +98,10 @@
 
 
 
+@media screen and (max-width: 799px) {
+  .dashboard {
+    .container-main-content {
+      margin-left: 0;
+    }
+  }
+}

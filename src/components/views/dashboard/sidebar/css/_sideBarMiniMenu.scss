@@ -1,0 +1,21 @@
+@media screen and (max-width: 799px) {
+  .dashboard .container-aside.sidebar-header {
+    left: -100%;
+    top: 71px;
+    z-index: 1000;
+    position: fixed;
+    backdrop-filter: blur(10px);
+    position: fixed;
+
+    .sidebar {
+      ul li {
+        margin: 0;
+      }
+    }
+  }
+  .header-container .movile-header.active {
+    .sidebar-header {
+      left: 0;
+    }
+  }
+}

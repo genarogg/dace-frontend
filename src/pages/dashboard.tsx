@@ -1,4 +1,4 @@
-import Dashboard from "@views/dashboard/Dashboard";
+import Dashboard from "@/components/views/dashboard/Dashboard";
 
 interface dashboardProps {}
 

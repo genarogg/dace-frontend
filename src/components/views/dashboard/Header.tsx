@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { A, Gravatar, BtnHamburgues } from "@nano";
 
 import { CSSTransition } from "react-transition-group";
-
+import SideBar from "./sidebar/SideBar";
+import StateDashboard from "./StateDashboard";
 interface HeaderProps {
   children?: React.ReactNode;
   where?: string;
@@ -53,6 +54,13 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
 
   const { data: user } = useQuery("users", fetchUsers);
 
+  const [isActive, setIsActive] = useState(false);
+  const { setContext } = StateDashboard();
+
+  const toggleActive = () => {
+    setIsActive(!isActive);
+  };
+
   return (
     <header className="header-container">
       <div className="desktop-header">
@@ -70,11 +78,21 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
           )}
         </nav>
       </div>
-      <div className="movile-header">
+      <div
+        className={`movile-header ${isActive ? "active" : ""}`}
+        id="movileHeader"
+      >
         <nav>
-          <ul>
+          <SideBar setContext={setContext} css="sidebar-header" />
+          <ul className="elements">
             <li>
-              <BtnHamburgues />
+              <button
+                onClick={() => {
+                  setIsActive(!isActive);
+                }}
+              >
+                <BtnHamburgues />
+              </button>
             </li>
             <li>
               <Title />

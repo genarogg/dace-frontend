@@ -3,21 +3,21 @@ import { NextApiRequest, NextApiResponse } from "next";
 const user = [
   {
     "1": 1,
-    email: "genarrogg@gmail.com",
+    email: "ana06rosa@gmail.com",
 
-    firstName: "Genaro",
-    secondName: "Octavio",
+    firstName: "Ana",
+    secondName: "Rosa",
 
-    firstNurname: "Gonzalez",
-    secondSurname: "Gonzalez",
+    firstNurname: "Ramos",
+    secondSurname: "Bolivar",
 
-    birthdate: "09/12/1996",
+    birthdate: "14/07/2000",
 
     direction:
       "san francisco de asís, estado Aragua,municipio zamora sector santa helena, calle 23 de enero, casa numero  04",
-    "phone-number": "0412-1234567",
+    phoneNumber: "0412-1234567",
 
-    sex: "masculino",
+    sex: "Femenino",
     Parroquia: "San francisco de asís",
     Etnia: "no aplica",
   },
