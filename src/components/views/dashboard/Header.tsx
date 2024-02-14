@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { A, Gravatar } from "@nano";
+import { A, Gravatar, BtnHamburgues } from "@nano";
 
 import { CSSTransition } from "react-transition-group";
 
@@ -14,14 +14,6 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
     link: string;
     text: string;
   }
-
-  const Li: React.FC<LiProps> = ({ link, text }) => {
-    return (
-      <li>
-        <A type="a" to={link} text={text} />
-      </li>
-    );
-  };
 
   const Title = () => {
     return (
@@ -44,6 +36,16 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
     );
   };
 
+  const Name = () => {
+    return (
+      <li>
+        <span className="name">
+          {user[0].firstName} {user[0].firstNurname}
+        </span>
+      </li>
+    );
+  };
+
   const fetchUsers = async () => {
     const res = await fetch("/api/data-demo");
     return res.json();
@@ -56,25 +58,33 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
       <div className="desktop-header">
         <Title />
         <nav>
-          {isLoading ? (
-            <ul></ul>
-          ) : where === "dashboard" && user ? (
+          {user ? (
             <CSSTransition in={true} timeout={500} classNames="fade" appear>
               <ul key={user[0].id}>
-                <li>
-                  <span className="name">
-                    {user[0].firstName} {user[0].firstNurname}
-                  </span>
-                  <Avatar />
-                </li>
+                <Name />
+                <Avatar />
               </ul>
             </CSSTransition>
           ) : (
-            <ul>
-              <Li link="http://www.unerg.edu.ve/" text="unerg" />
-              <Li link="http://www.opsu.gob.ve/" text="opsu" />
-            </ul>
+            <ul></ul>
           )}
+        </nav>
+      </div>
+      <div className="movile-header">
+        <nav>
+          <ul>
+            <li><BtnHamburgues/></li>
+            <li>
+              <Title />
+            </li>
+            {user ? (
+              <CSSTransition in={true} timeout={500} classNames="fade" appear>
+                <Avatar />
+              </CSSTransition>
+            ) : (
+              <li></li>
+            )}
+          </ul>
         </nav>
       </div>
     </header>

@@ -16,15 +16,15 @@ import { GoHomeFill } from "react-icons/go";
 import { HiMiniAcademicCap } from "react-icons/hi2";
 import MainContent from "./mainContent/MainContent";
 
+import Header from "./Header";
+
 interface DashboardProps {}
 
 const Dashboard: React.FC<DashboardProps> = () => {
   const [context, setContext] = useState("initial");
 
-  
-
   return (
-    <Layout where="dashboard">
+    <Layout where="dashboard" header={<Header where="dashboard" />}>
       <div className={`container-dashboard-all`} id="containerDashboardAll">
         <SideBar>
           <Section
