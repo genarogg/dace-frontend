@@ -15,7 +15,7 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
     text: string;
   }
 
-  const Title = () => {
+  /* const Title = () => {
     return (
       <div className="titulo">
         <h1>
@@ -51,12 +51,12 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
     return res.json();
   };
 
-  const { data: user } = useQuery("users", fetchUsers);
+  const { data: user } = useQuery("users", fetchUsers); */
 
   return (
     <header className="header-container">
       <div className="desktop-header">
-        <Title />
+        {/* <Title />
         <nav>
           {user ? (
             <CSSTransition in={true} timeout={500} classNames="fade" appear>
@@ -68,11 +68,11 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
           ) : (
             <ul></ul>
           )}
-        </nav>
+        </nav> */}
       </div>
       <div className="movile-header">
         <nav>
-          <ul>
+          {/* <ul>
             <li>
               <BtnHamburgues />
             </li>
@@ -86,7 +86,7 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
             ) : (
               <li></li>
             )}
-          </ul>
+          </ul> */}
         </nav>
       </div>
     </header>
