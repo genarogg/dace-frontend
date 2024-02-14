@@ -26,7 +26,43 @@ const Dashboard: React.FC<DashboardProps> = () => {
   return (
     <Layout where="dashboard" header={<Header where="dashboard" />}>
       <div className={`container-dashboard-all`} id="containerDashboardAll">
-        
+        <SideBar>
+          <Section
+            title={"Inicio"}
+            icono={<GoHomeFill />}
+            setContext={setContext}
+          ></Section>
+          <Section title={"Perfil"} icono={<TiUser />}>
+            <Element
+              text={"Mis datos"}
+              icono={<RiNewspaperFill />}
+              setContext={setContext}
+            />
+            <Element
+              text={"Cambio de email"}
+              icono={<BsEnvelopeHeartFill />}
+              setContext={setContext}
+            />
+            <Element
+              text={"Cambio de contraseña"}
+              icono={<IoMdLock />}
+              setContext={setContext}
+            />
+          </Section>
+          <Section title={"Carga Académica"} icono={<HiMiniAcademicCap />}>
+            <Element
+              text={"Consultar Horario"}
+              icono={<FaClock />}
+              setContext={setContext}
+            />
+            <Element
+              text={"Cargar Notas"}
+              icono={<PiNotebookFill />}
+              setContext={setContext}
+            />
+          </Section>
+        </SideBar>
+       
       </div>
     </Layout>
   );
