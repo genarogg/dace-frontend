@@ -29,11 +29,9 @@ const MainContent: React.FC<MainContentProps> = ({ context, setContext }) => {
   };
 
   return (
-    <SwitchTransition>
-      <CSSTransition key={context} timeout={500} classNames="fade">
-        <Initial setContext={setContext} />;
-      </CSSTransition>
-    </SwitchTransition>
+   
+        <Initial setContext={setContext} />
+     
   );
 };
 
