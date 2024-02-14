@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { A, Gravatar, BtnHamburgues } from "@nano";
+import { A,  BtnHamburgues } from "@nano";
 
 import { CSSTransition } from "react-transition-group";
 
@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
     );
   };
 
-  const Avatar = () => {
+ /*  const Avatar = () => {
     return (
       <li>
         <div className="user-img">
@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
         </div>
       </li>
     );
-  };
+  }; */
 
   const Name = () => {
     return (
@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
             <CSSTransition in={true} timeout={500} classNames="fade" appear>
               <ul key={user[0].id}>
                 <Name />
-                <Avatar />
+                {/* <Avatar /> */}
               </ul>
             </CSSTransition>
           ) : (
@@ -79,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
             </li>
             {user ? (
               <CSSTransition in={true} timeout={500} classNames="fade" appear>
-                <Avatar />
+                {/* <Avatar /> */}
               </CSSTransition>
             ) : (
               <li></li>
