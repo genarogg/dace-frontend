@@ -55,7 +55,38 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
 
   return (
     <header className="header-container">
-     
+      <div className="desktop-header">
+        <Title />
+        <nav>
+          {user ? (
+            <CSSTransition in={true} timeout={500} classNames="fade" appear>
+              <ul key={user[0].id}>
+                <Name />
+                <Avatar />
+              </ul>
+            </CSSTransition>
+          ) : (
+            <ul></ul>
+          )}
+        </nav>
+      </div>
+      <div className="movile-header">
+        <nav>
+          <ul>
+            <li><BtnHamburgues/></li>
+            <li>
+              <Title />
+            </li>
+            {user ? (
+              <CSSTransition in={true} timeout={500} classNames="fade" appear>
+                <Avatar />
+              </CSSTransition>
+            ) : (
+              <li></li>
+            )}
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 };

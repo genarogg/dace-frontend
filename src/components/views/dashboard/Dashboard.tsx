@@ -24,7 +24,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
   const [context, setContext] = useState("initial");
 
   return (
-    <Layout where="dashboard" header={<Header where="dashboard" />}>
+    <Layout where="dashboard" header={<header></header>}>
       <div className={`container-dashboard-all`} id="containerDashboardAll">
         <SideBar>
           <Section
