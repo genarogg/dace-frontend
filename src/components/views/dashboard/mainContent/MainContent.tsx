@@ -28,11 +28,13 @@ const MainContent: React.FC<MainContentProps> = ({ context, setContext }) => {
     }
   };
 
-  return (
-   
-        <Initial setContext={setContext} />
-     
-  );
+  return context ? (
+    <SwitchTransition>
+      <CSSTransition key={context} timeout={500} classNames="fade">
+        <Initial setContext={setContext} />;
+      </CSSTransition>
+    </SwitchTransition>
+  ) : null;
 };
 
 export default MainContent;
