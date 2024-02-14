@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
     return (
       <li>
         <div className="user-img">
-          <Gravatar email={user[0].email} />
+          {user && <Gravatar email={user[0].email} />}
         </div>
       </li>
     );
@@ -40,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({ children, where }) => {
     return (
       <li>
         <span className="name">
-          {user[0].firstName} {user[0].firstNurname}
+          {user && `${user[0].firstName} ${user[0].firstNurname}`}
         </span>
       </li>
     );
