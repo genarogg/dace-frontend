@@ -11,7 +11,7 @@ interface HeaderProps {
   setContext: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Header: React.FC<HeaderProps> = ({ children, where,setContext }) => {
+const Header: React.FC<HeaderProps> = ({ children, where, setContext }) => {
   interface LiProps {
     link: string;
     text: string;
@@ -57,11 +57,6 @@ const Header: React.FC<HeaderProps> = ({ children, where,setContext }) => {
 
   const [isActive, setIsActive] = useState(false);
 
-
-  const toggleActive = () => {
-    setIsActive(!isActive);
-  };
-
   return (
     <header className="header-container">
       <div className="desktop-header">
@@ -84,7 +79,11 @@ const Header: React.FC<HeaderProps> = ({ children, where,setContext }) => {
         id="movileHeader"
       >
         <nav>
-          <SideBar setContext={setContext} css="sidebar-header" />
+          <SideBar
+            setContext={setContext}
+            setIsActive={setIsActive}
+            css="sidebar-header"
+          />
           <ul className="elements">
             <li>
               <button
@@ -92,7 +91,7 @@ const Header: React.FC<HeaderProps> = ({ children, where,setContext }) => {
                   setIsActive(!isActive);
                 }}
               >
-                <BtnHamburgues />
+                <BtnHamburgues isActive={isActive} setIsActive={setIsActive} />
               </button>
             </li>
             <li>

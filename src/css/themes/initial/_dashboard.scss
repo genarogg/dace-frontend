@@ -92,3 +92,21 @@
     }
   }
 }
+
+
+.initial{
+  .btnX.active span:nth-last-of-type(1) {
+    
+    background-color: $azul;
+  }
+  
+  .btnX.active span:nth-last-of-type(3) {
+    
+    background-color: $azul;
+  }
+  
+  .btnX.active span:nth-last-of-type(2) {
+    background-color: $azul;
+    opacity: 0;
+  }
+}

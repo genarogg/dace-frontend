@@ -18,9 +18,15 @@ interface SideBarProps {
   setContext: React.Dispatch<React.SetStateAction<string>>;
   fn?: () => void;
   css?: string;
+  setIsActive?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SideBar: React.FC<SideBarProps> = ({ setContext, fn, css }) => {
+const SideBar: React.FC<SideBarProps> = ({
+  setContext,
+  fn,
+  css,
+  setIsActive,
+}) => {
   return (
     <div className={`container-aside ${css}`}>
       <aside className="sidebar">
@@ -30,22 +36,26 @@ const SideBar: React.FC<SideBarProps> = ({ setContext, fn, css }) => {
               title={"Inicio"}
               icono={<GoHomeFill />}
               setContext={setContext}
+              setIsActive={setIsActive}
             ></Section>
             <Section title={"Perfil"} icono={<TiUser />}>
               <Element
                 text={"Mis datos"}
                 icono={<RiNewspaperFill />}
                 setContext={setContext}
+                setIsActive={setIsActive}
               />
               <Element
                 text={"Cambio de email"}
                 icono={<BsEnvelopeHeartFill />}
                 setContext={setContext}
+                setIsActive={setIsActive}
               />
               <Element
                 text={"Cambio de contraseña"}
                 icono={<IoMdLock />}
                 setContext={setContext}
+                setIsActive={setIsActive}
               />
             </Section>
             <Section title={"Carga Académica"} icono={<HiMiniAcademicCap />}>
@@ -53,11 +63,13 @@ const SideBar: React.FC<SideBarProps> = ({ setContext, fn, css }) => {
                 text={"Consultar Horario"}
                 icono={<FaClock />}
                 setContext={setContext}
+                setIsActive={setIsActive}
               />
               <Element
                 text={"Cargar Notas"}
                 icono={<PiNotebookFill />}
                 setContext={setContext}
+                setIsActive={setIsActive}
               />
             </Section>
           </ul>

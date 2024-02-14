@@ -65,6 +65,13 @@
         justify-content: space-between;
 
         $margin: 40px;
+
+        &.elements {
+          display: grid;
+          grid-template-columns: 1fr 4fr 1fr;
+          justify-content: center;
+          justify-items: center;
+        }
         li {
           &:first-child {
             margin-left: $margin;

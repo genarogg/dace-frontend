@@ -5,12 +5,14 @@ interface SectionProps {
   children?: React.ReactNode;
   icono: React.ReactNode;
   setContext?: (newContext: string) => void;
+  setIsActive?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Section: React.FC<SectionProps> = ({
   title,
   icono,
   setContext,
+  setIsActive,
   children,
 }) => {
   return (
@@ -20,6 +22,7 @@ const Section: React.FC<SectionProps> = ({
           className={`section ${setContext ? "active" : ""}`}
           onClick={() => {
             setContext && setContext("initial");
+            setIsActive && setIsActive(false);
           }}
         >
           <Icono icono={icono} />
