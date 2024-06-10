@@ -22,7 +22,9 @@
 
       "@fn/*": ["./src/functions/*"],
 
-      "@css/*": ["./src/css/*"]
+      "@css/*": ["./src/css/*"],
+
+      "@env": ["./env.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

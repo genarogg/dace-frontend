@@ -11,7 +11,9 @@ interface DashboardProps {}
 
 const Dashboard: React.FC<DashboardProps> = () => {
   /*   const [context, setContext] = useState("initial"); */
+
   const [context, setContext] = useState("initial");
+
   return (
     <Layout
       where="dashboard"

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { Bounce, toast } from "react-toastify";
+
 import ContainerInput from "./global/ContainerInput";
 import CheckBox from "./global/CheckBox";
 
@@ -8,17 +10,62 @@ import { MdLock } from "react-icons/md";
 
 import HeadBtn from "./global/HeadBtn";
 
+import { BACKEND_URL } from "@env";
+
 import $ from "../function/$";
 interface LoginProps {
   cardState: (css: string) => void;
 }
 
 const Login: React.FC<LoginProps> = ({ cardState }) => {
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    correo: "",
+    contrasena: "",
     remenber: false,
   });
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    setLoading(true);
+
+    fetch(`${BACKEND_URL}/login`, {
+      method: "POST",
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setLoading(false);
+
+        console.log(data);
+
+        toast.success(data.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+
+        toast.error(data.error, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      })
+      .catch((error) => console.error(error));
+  };
 
   const active = () => {
     $("btnBack")?.classList.add("active");
@@ -39,15 +86,15 @@ const Login: React.FC<LoginProps> = ({ cardState }) => {
   return (
     <div className="login front">
       <HeadBtn cardState={cardState} />
-      <form>
+      <form onSubmit={handleSubmit}>
         <ContainerInput
           type="email"
           name="email"
           placeholder={"Email"}
           icono={<BsEnvelopeFill />}
-          value={formData.email}
+          value={formData.correo}
           valueChange={(e) =>
-            setFormData({ ...formData, email: e.target.value })
+            setFormData({ ...formData, correo: e.target.value })
           }
         />
         <ContainerInput
@@ -55,9 +102,9 @@ const Login: React.FC<LoginProps> = ({ cardState }) => {
           name="password"
           placeholder={"Contraseña"}
           icono={<MdLock />}
-          value={formData.password}
+          value={formData.contrasena}
           valueChange={(e) =>
-            setFormData({ ...formData, password: e.target.value })
+            setFormData({ ...formData, contrasena: e.target.value })
           }
         />
 

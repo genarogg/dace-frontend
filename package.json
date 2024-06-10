@@ -1,9 +1,9 @@
 {
-  "name": "dace",
+  "name": "dace-frontend",
   "version": "0.1.0",
   "private": true,
   "author": {
-    "name": "genaro gonzalez"
+    "name": "Ana Rosa Ramos Bolivar"
   },
   "scripts": {
     "dev": "next dev",
