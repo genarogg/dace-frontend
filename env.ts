@@ -1,3 +1,4 @@
 const BACKEND_URL = "http://localhost:8000";
+const RECAPTCHA_KEY = "6Lc3AWopAAAAAESKRKvIau3MEgONUYVi5C3K_BTh";
 
-export { BACKEND_URL };
+export { BACKEND_URL, RECAPTCHA_KEY };

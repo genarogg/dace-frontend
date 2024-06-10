@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 import { Bounce, toast } from "react-toastify";
 
@@ -23,24 +24,41 @@ const Login: React.FC<LoginProps> = ({ cardState }) => {
   const [formData, setFormData] = useState({
     correo: "",
     contrasena: "",
+    captcha: "",
     remenber: false,
   });
 
-  const handleSubmit = (e: any) => {
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
+
+    if (!executeRecaptcha) {
+      return;
+    }
+
+    const token = await executeRecaptcha("login");
+
+    setFormData((prevState) => ({
+      ...prevState,
+      captcha: token,
+    }));
 
     fetch(`${BACKEND_URL}/login`, {
       method: "POST",
       body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
       .then((response) => response.json())
       .then((data) => {
         setLoading(false);
 
-        console.log(data);
+        localStorage.setItem("token", data.token);
 
-        toast.success(data.message, {
+        toast.success(data.mensaje, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -115,7 +133,7 @@ const Login: React.FC<LoginProps> = ({ cardState }) => {
         />
 
         <div className="submit-container">
-          <button className="submit" id="">
+          <button className="submit" id="" disabled={loading}>
             Acceder
           </button>
         </div>
