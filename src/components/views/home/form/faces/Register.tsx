@@ -37,7 +37,7 @@ const Register: React.FC<RegisterProps> = ({ cardState }) => {
 
         <ContainerInput
           type="email"
-          name="email"
+          name="emailRegister"
           placeholder={"Email"}
           icono={<BsEnvelopeFill />}
           value={formData.email}
@@ -59,7 +59,7 @@ const Register: React.FC<RegisterProps> = ({ cardState }) => {
 
         <ContainerInput
           type="password"
-          name="password"
+          name="passwordRegister"
           placeholder={"Contraseña"}
           icono={<IoMdUnlock />}
           value={formData.password}
