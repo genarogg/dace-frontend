@@ -2,9 +2,11 @@ interface SpinnerProps {}
 
 const Spinner: React.FC<SpinnerProps> = () => {
   return (
-    <div className="lds-ripple">
-      <div></div>
-      <div></div>
+    <div className="spinner-container">
+      <div className="lds-ripple">
+        <div></div>
+        <div></div>
+      </div>
     </div>
   );
 };

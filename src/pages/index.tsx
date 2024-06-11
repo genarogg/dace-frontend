@@ -1,7 +1,5 @@
 import Home from "@views/home/Home";
 
-
-
 const index = () => {
   return <Home />;
 };

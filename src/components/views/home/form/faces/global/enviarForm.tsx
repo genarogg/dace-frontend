@@ -18,7 +18,7 @@ const handleSubmit = async (
 
   const token = await executeRecaptcha("login");
 
-  setFormData((prevState: any) => ({
+  await setFormData((prevState: any) => ({
     ...prevState,
     captcha: token,
   }));
@@ -34,10 +34,31 @@ const handleSubmit = async (
     .then((data) => {
       setLoading(false);
 
+      if (data.error) {
+        toast.error(data.error, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+        return;
+      }
+
+      //resetear el info
+      /* localStorage.removeItem("token");
+      localStorage.removeItem("usuario"); */
+
       if (formData.remenber) {
-        localStorage.setItem("token", token);
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("usuario", JSON.stringify(data.infoUser));
       } else {
-        sessionStorage.setItem("token", token);
+        sessionStorage.setItem("token", data.token);
+        sessionStorage.setItem("usuario", JSON.stringify(data.infoUser));
       }
 
       toast.success(data.mensaje, {
@@ -52,22 +73,10 @@ const handleSubmit = async (
         transition: Bounce,
       });
 
-      toast.error(data.error, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
-
-      console.log(data.usuario);
+      console.log(data.infoUser);
 
       //redireccionar el usuario con el api de nextjs
-      router.push("/dashboard");
+      /* router.push("/dashboard"); */
     })
     .catch((error) => console.error(error));
 };
