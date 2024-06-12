@@ -37,6 +37,10 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
         if (data.error) {
           localStorage.removeItem("token");
           localStorage.removeItem("usuario");
+          router.push("/");
+          if (window.location.pathname === "/") {
+            setIsLoading(false);
+          }
           return;
         }
         //redireccionar el usuario con el api de nextjs

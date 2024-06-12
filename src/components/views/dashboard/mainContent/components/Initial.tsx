@@ -1,3 +1,4 @@
+import router from "next/router";
 import Btn from "./global/Btn";
 
 interface InitialProps {
@@ -6,17 +7,21 @@ interface InitialProps {
 
 const Initial: React.FC<InitialProps> = ({ setContext }) => {
   const myData = () => {
-    /* setContext(""); */
+    setContext("");
     console.log("Mis datos");
   };
 
   const changePass = () => {
-    /* setContext(""); */
+    setContext("cambio-de-contrasena");
     console.log("changePass");
   };
 
   const logOut = () => {
-    console.log("logOut");
+    localStorage.removeItem("token");
+    localStorage.removeItem("usuario");
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("usuario");
+    router.push("/");
   };
 
   const uploadNotes = () => {
