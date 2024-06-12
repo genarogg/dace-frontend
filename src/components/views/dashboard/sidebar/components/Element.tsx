@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import { Icono } from "@nano";
 import $createFriendlyUrl from "@fn/$createFriendlyUrl";
 
@@ -6,9 +8,20 @@ interface ElementProps {
   icono: React.ReactNode;
   setContext?: (newContext: string) => void;
   setIsActive?: React.Dispatch<React.SetStateAction<boolean>>;
+  context: string;
 }
 
-const Element: React.FC<ElementProps> = ({ text, icono, setContext,setIsActive }) => {
+const Element: React.FC<ElementProps> = ({
+  text,
+  icono,
+  setContext,
+  setIsActive,
+  context,
+}) => {
+  useEffect(() => {
+    localStorage.setItem("context", context);
+  }, [context]);
+
   return (
     <button
       className="element"

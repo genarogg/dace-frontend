@@ -19,6 +19,7 @@ interface SideBarProps {
   fn?: () => void;
   css?: string;
   setIsActive?: React.Dispatch<React.SetStateAction<boolean>>;
+  context: string;
 }
 
 const SideBar: React.FC<SideBarProps> = ({
@@ -26,6 +27,7 @@ const SideBar: React.FC<SideBarProps> = ({
   fn,
   css,
   setIsActive,
+  context,
 }) => {
   return (
     <div className={`container-aside ${css}`}>
@@ -44,18 +46,21 @@ const SideBar: React.FC<SideBarProps> = ({
                 icono={<RiNewspaperFill />}
                 setContext={setContext}
                 setIsActive={setIsActive}
+                context={context}
               />
               <Element
                 text={"Cambio de email"}
                 icono={<BsEnvelopeHeartFill />}
                 setContext={setContext}
                 setIsActive={setIsActive}
+                context={context}
               />
               <Element
                 text={"Cambio de contraseña"}
                 icono={<IoMdLock />}
                 setContext={setContext}
                 setIsActive={setIsActive}
+                context={context}
               />
             </Section>
             <Section title={"Carga Académica"} icono={<HiMiniAcademicCap />}>
@@ -64,12 +69,14 @@ const SideBar: React.FC<SideBarProps> = ({
                 icono={<FaClock />}
                 setContext={setContext}
                 setIsActive={setIsActive}
+                context={context}
               />
               <Element
                 text={"Cargar Notas"}
                 icono={<PiNotebookFill />}
                 setContext={setContext}
                 setIsActive={setIsActive}
+                context={context}
               />
             </Section>
           </ul>

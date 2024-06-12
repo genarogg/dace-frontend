@@ -25,10 +25,16 @@ const Dashboard: React.FC<DashboardProps> = () => {
   return (
     <Layout
       where="dashboard"
-      header={<Header where="dashboard" setContext={setContext} />}
+      header={
+        <Header context={context} where="dashboard" setContext={setContext} />
+      }
     >
       <div className={`container-dashboard-all`} id="containerDashboardAll">
-        <SideBar setContext={setContext} css={"main-content-sidebar"} />
+        <SideBar
+          context={context}
+          setContext={setContext}
+          css={"main-content-sidebar"}
+        />
         <div className="container-main-content">
           <MainContent context={context} setContext={setContext} />
         </div>

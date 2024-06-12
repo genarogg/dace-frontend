@@ -9,9 +9,15 @@ interface HeaderProps {
   children?: React.ReactNode;
   where?: string;
   setContext: React.Dispatch<React.SetStateAction<string>>;
+  context: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ children, where, setContext }) => {
+const Header: React.FC<HeaderProps> = ({
+  children,
+  where,
+  context,
+  setContext,
+}) => {
   interface LiProps {
     link: string;
     text: string;
@@ -83,6 +89,7 @@ const Header: React.FC<HeaderProps> = ({ children, where, setContext }) => {
             setContext={setContext}
             setIsActive={setIsActive}
             css="sidebar-header"
+            context={context}
           />
           <ul className="elements">
             <li>
