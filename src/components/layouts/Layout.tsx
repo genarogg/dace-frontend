@@ -24,7 +24,6 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
   useEffect(() => {
     const tokenLocal = localStorage.getItem("token");
 
-    console.log(tokenLocal);
     fetch(`${BACKEND_URL}/login/token`, {
       method: "POST",
       headers: {
@@ -61,7 +60,6 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
           {header}
           <main>{children}</main>
           <Footer />
-
           <ToastContainer />
         </>
       )}

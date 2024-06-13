@@ -18,8 +18,6 @@ const handleSubmit = async (
 
   const token = await executeRecaptcha("login");
 
-
-
   await setFormData((prevState: any) => ({
     ...prevState,
     captcha: token,
@@ -32,8 +30,6 @@ const handleSubmit = async (
     contrasena,
     captcha: token,
   };
-
-
 
   fetch(`${BACKEND_URL}/login`, {
     method: "POST",

@@ -1,52 +1,60 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { Icono } from "@nano";
-interface ContainerInputProps {
-  type: string;
+
+interface SelectProps {
+  data: any[];
   name: string;
   id?: string;
   placeholder: string;
+  required?: boolean;
   icono?: React.ReactNode;
   value: string | number | boolean;
   valueChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  hasContentState?: boolean;
+  content?: boolean;
 }
 
-const ContainerInput: React.FC<ContainerInputProps> = ({
-  type,
+const Select: React.FC<SelectProps> = ({
+  data,
   name,
-  id = name,
+  id,
   placeholder,
+  required = true,
   icono,
   value,
   valueChange,
-  hasContentState = false
+  content = false,
+  ...props
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [hasContent, setHasContent] = useState(hasContentState);
+  const [hasContent, setHasContent] = useState(content);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: any) => {
     setHasContent(event.target.value !== "");
     valueChange(event);
   };
 
   return (
-    <div className={`container-input ${isFocused ? "focus" : ""}`}>
-      <label htmlFor={`#${id}`}>
+    <div className={`container-input ${isFocused ? "focus" : ""}`} {...props}>
+      <label htmlFor={id}>
         <Icono icono={icono} />
       </label>
-
-      <input
-        type={type}
+      <select
         name={name}
-        required
+        required={required}
         id={id}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         onChange={handleInputChange}
-
         value={value as string | number | readonly string[] | undefined}
-      />
+      >
+        <option value="" id=""></option>
+        {data.map((item, index) => (
+          <option key={index} value={item.value}>
+            {item.text}
+          </option>
+        ))}
+      </select>
       <span className={`holder ${hasContent ? "has-content" : ""}`}>
         {placeholder}
       </span>
@@ -54,4 +62,4 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
   );
 };
 
-export default ContainerInput;
+export default Select;

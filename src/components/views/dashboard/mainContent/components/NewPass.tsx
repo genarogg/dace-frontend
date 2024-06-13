@@ -17,7 +17,7 @@ const NewPass: React.FC<NewPassProps> = () => {
 
   return (
     <>
-      <BannerPosition title="Cambiar Contraseña"/>
+      <BannerPosition title="Cambiar Contraseña" />
       <div className="new-pass-container login front">
         <form>
           <ContainerInput

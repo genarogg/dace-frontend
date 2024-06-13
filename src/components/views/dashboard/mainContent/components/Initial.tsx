@@ -1,6 +1,8 @@
 import router from "next/router";
 import Btn from "./global/Btn";
 
+import { logOut } from "./global/cerrarSeccion";
+
 interface InitialProps {
   setContext: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -14,14 +16,6 @@ const Initial: React.FC<InitialProps> = ({ setContext }) => {
   const changePass = () => {
     setContext("cambio-de-contrasena");
     console.log("changePass");
-  };
-
-  const logOut = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("usuario");
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("usuario");
-    router.push("/");
   };
 
   const uploadNotes = () => {

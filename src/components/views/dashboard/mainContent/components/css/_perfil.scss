@@ -1,4 +1,28 @@
-.perfil{
-    max-width: 360px;
-    max-height: initial;
+.dashboard .perfil {
+  max-width: 360px;
+  max-height: initial;
+  box-shadow: none;
+  background-color: #f6f9ff;
+  background-color: transparent;
+}
+
+
+
+@media screen and (min-width: 1100px) {
+  .dashboard {
+    .perfil {
+      max-width: 720px;
+
+      .submit-container {
+        grid-column: span 2;
+      }
+    }
+    .login form {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .submit-container button {
+      max-width: 360px;
+    }
+  }
 }
