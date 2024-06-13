@@ -5,6 +5,8 @@ import Initial from "./components/Initial";
 import NewPass from "./components/NewPass";
 import Perfil from "./components/Perfil";
 
+import CargarNotas from "./components/CargarNotas";
+
 interface MainContentProps {
   context: string;
   setContext: React.Dispatch<React.SetStateAction<string>>;
@@ -17,14 +19,12 @@ const MainContent: React.FC<MainContentProps> = ({ context, setContext }) => {
         return <Initial setContext={setContext} />;
       case "mis-datos":
         return <Perfil />;
-      case "cambio-de-email":
-        return <Demo />;
       case "cambio-de-contrasena":
         return <NewPass />;
       case "consultar-horario":
         return <Demo />;
       case "cargar-notas":
-        return <Demo />;
+        return <CargarNotas />;
       default:
         return <Demo />;
     }
