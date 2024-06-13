@@ -1,4 +1,10 @@
-.new-pass-container{
-    max-width: 360px;
-    max-height: 250px;
+.initial .login.new-pass-container{
+    /* max-width: 360px;
+    max-height: 250px; */
+
+    box-shadow: none;
+
+    form{
+        grid-template-columns: 1fr;
+    }
 }

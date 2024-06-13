@@ -48,13 +48,13 @@ const SideBar: React.FC<SideBarProps> = ({
                 setIsActive={setIsActive}
                 context={context}
               />
-              <Element
+              {/* <Element
                 text={"Cambio de email"}
                 icono={<BsEnvelopeHeartFill />}
                 setContext={setContext}
                 setIsActive={setIsActive}
                 context={context}
-              />
+              /> */}
               <Element
                 text={"Cambio de contraseña"}
                 icono={<IoMdLock />}

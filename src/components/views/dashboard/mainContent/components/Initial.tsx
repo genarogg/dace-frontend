@@ -9,7 +9,7 @@ interface InitialProps {
 
 const Initial: React.FC<InitialProps> = ({ setContext }) => {
   const myData = () => {
-    setContext("");
+    setContext("mis-datos");
     console.log("Mis datos");
   };
 

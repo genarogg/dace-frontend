@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import ContainerInput from "@form/ContainerInput";
 import BannerPosition from "./global/BannerPosition";
 
+import updateData from "./global/updateData";
+
 import {
   BsEnvelopeFill,
   BsFillCalendar2HeartFill,
@@ -20,6 +22,7 @@ import { FaMobileRetro, FaVenusMars, FaMapPin } from "react-icons/fa6";
 import Select from "@form/Select";
 
 import { BACKEND_URL } from "@env";
+import { Bounce, toast } from "react-toastify";
 
 interface UserDataProps {}
 
@@ -54,23 +57,6 @@ const UserData: React.FC<UserDataProps> = () => {
       });
   }, []);
 
-  const updateData = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const token = localStorage.getItem("token");
-    fetch(`${BACKEND_URL}/usuario/data`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `${token}`,
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
-  };
-
   return (
     <>
       <BannerPosition title="Cambiar Informacion" />
@@ -78,7 +64,7 @@ const UserData: React.FC<UserDataProps> = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            updateData(e);
+            updateData(formData);
           }}
         >
           <ContainerInput
