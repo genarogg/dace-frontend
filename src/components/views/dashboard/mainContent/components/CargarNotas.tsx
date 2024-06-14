@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ContainerInput from "@form/ContainerInput";
 import BannerPosition from "./global/BannerPosition";
 
+import cargarNotasSutmit from "./global/cargarNotasSutmit";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import { RxActivityLog } from "react-icons/rx";
@@ -61,6 +62,7 @@ const CargarNotas: React.FC<CargarNotasProps> = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            cargarNotasSutmit(formData);
           }}
         >
           <Select
@@ -99,6 +101,7 @@ const CargarNotas: React.FC<CargarNotasProps> = () => {
                     name={`nota-${estudiante.id}`}
                     placeholder="Nota"
                     value={estudiante.nota || ""}
+                    required={false}
                     valueChange={(e) => {
                       let estudiantes = [...formData.estudiantes];
                       estudiantes[index].nota = Number(e.target.value);
@@ -110,6 +113,14 @@ const CargarNotas: React.FC<CargarNotasProps> = () => {
                 </div>
               </CSSTransition>
             ))}
+
+            {formData.estudiantes.length !== 0 && (
+              <div className="submit-container">
+                <button className="submit" id="">
+                  Cargar Notas
+                </button>
+              </div>
+            )}
           </TransitionGroup>
         </form>
       </div>

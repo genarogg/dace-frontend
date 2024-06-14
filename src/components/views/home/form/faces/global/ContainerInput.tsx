@@ -12,6 +12,7 @@ interface ContainerInputProps {
   hasContentState?: boolean;
   max?: number;
   min?: number;
+  required?: boolean;
 }
 
 const ContainerInput: React.FC<ContainerInputProps> = ({
@@ -25,6 +26,7 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
   hasContentState = false,
   min,
   max,
+  required = true,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasContent, setHasContent] = useState(hasContentState);
@@ -43,7 +45,7 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
       <input
         type={type}
         name={name}
-        required
+        required={required}
         id={id}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}

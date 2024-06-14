@@ -12,8 +12,12 @@
   }
 
   .container-notas {
-    display: grid;
-    row-gap: 20px;
+    /*  display: grid;
+    row-gap: 20px; */
+
+    > div {
+      margin-bottom: 20px;
+    }
 
     .nota-titulo {
       grid-template-columns: 2.5fr 2fr 1fr;
