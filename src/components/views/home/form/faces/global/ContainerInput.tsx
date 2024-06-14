@@ -10,6 +10,8 @@ interface ContainerInputProps {
   value: string | number | boolean;
   valueChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   hasContentState?: boolean;
+  max?: number;
+  min?: number;
 }
 
 const ContainerInput: React.FC<ContainerInputProps> = ({
@@ -20,7 +22,9 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
   icono,
   value,
   valueChange,
-  hasContentState = false
+  hasContentState = false,
+  min,
+  max,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasContent, setHasContent] = useState(hasContentState);
@@ -44,8 +48,9 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         onChange={handleInputChange}
-
         value={value as string | number | readonly string[] | undefined}
+        {...(min ? { min } : {})}
+        {...(max ? { max } : {})}
       />
       <span className={`holder ${hasContent ? "has-content" : ""}`}>
         {placeholder}

@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { useQuery } from "react-query";
+import React, { useState, useEffect } from "react";
 import { A, Gravatar, BtnHamburgues } from "@nano";
-
 import { CSSTransition } from "react-transition-group";
 import SideBar from "./sidebar/SideBar";
 
@@ -18,10 +16,14 @@ const Header: React.FC<HeaderProps> = ({
   context,
   setContext,
 }) => {
-  interface LiProps {
-    link: string;
-    text: string;
-  }
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const userData = localStorage.getItem("usuario");
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
+  }, []);
 
   const Title = () => {
     return (
@@ -38,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({
     return (
       <li>
         <div className="user-img">
-          {user && <Gravatar email={user[0].email} />}
+          {user && <Gravatar email={user.correo} />}
         </div>
       </li>
     );
@@ -48,18 +50,11 @@ const Header: React.FC<HeaderProps> = ({
     return (
       <li>
         <span className="name">
-          {user && `${user[0].firstName} ${user[0].firstNurname}`}
+          {user && `${user.nombre} ${user.apellido}`}
         </span>
       </li>
     );
   };
-
-  const fetchUsers = async () => {
-    const res = await fetch("/api/data-demo");
-    return res.json();
-  };
-
-  const { data: user } = useQuery("users", fetchUsers);
 
   const [isActive, setIsActive] = useState(false);
 
@@ -70,7 +65,7 @@ const Header: React.FC<HeaderProps> = ({
         <nav>
           {user ? (
             <CSSTransition in={true} timeout={500} classNames="fade" appear>
-              <ul key={user[0].id}>
+              <ul key={user.id}>
                 <Name />
                 <Avatar />
               </ul>

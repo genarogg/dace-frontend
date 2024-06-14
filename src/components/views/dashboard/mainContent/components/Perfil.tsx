@@ -22,7 +22,7 @@ import { FaMobileRetro, FaVenusMars, FaMapPin } from "react-icons/fa6";
 import Select from "@form/Select";
 
 import { BACKEND_URL } from "@env";
-import { Bounce, toast } from "react-toastify";
+
 
 interface UserDataProps {}
 
@@ -43,7 +43,7 @@ const UserData: React.FC<UserDataProps> = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log(token);
+
     fetch(`${BACKEND_URL}/usuario/data`, {
       method: "GET",
       headers: {
@@ -54,6 +54,7 @@ const UserData: React.FC<UserDataProps> = () => {
       .then((response) => response.json())
       .then((data) => {
         setFormData(data);
+        console.log(data);
       });
   }, []);
 
@@ -146,18 +147,6 @@ const UserData: React.FC<UserDataProps> = () => {
               setFormData({ ...formData, birthdate: e.target.value })
             }
           />
-          <ContainerInput
-            type="text"
-            name="direction"
-            icono={<BsFillHouseDoorFill />}
-            placeholder={"Dirección"}
-            value={formData.direction}
-            hasContentState={true}
-            valueChange={(e) =>
-              setFormData({ ...formData, direction: e.target.value })
-            }
-          />
-
           <Select
             data={[
               { value: "F", text: "Femenino" },
@@ -174,6 +163,17 @@ const UserData: React.FC<UserDataProps> = () => {
           />
           <ContainerInput
             type="text"
+            name="direction"
+            icono={<BsFillHouseDoorFill />}
+            placeholder={"Dirección"}
+            value={formData.direction}
+            hasContentState={true}
+            valueChange={(e) =>
+              setFormData({ ...formData, direction: e.target.value })
+            }
+          />
+          <ContainerInput
+            type="text"
             name="parroquia"
             placeholder={"Parroquia"}
             value={formData.parroquia}
@@ -183,16 +183,8 @@ const UserData: React.FC<UserDataProps> = () => {
               setFormData({ ...formData, parroquia: e.target.value })
             }
           />
-          {/* <ContainerInput
-            type="text"
-            name="etnia"
-            placeholder={"Etnia"}
-            value={formData.etnia}
-            hasContentState={true}
-            valueChange={(e) =>
-              setFormData({ ...formData, etnia: e.target.value })
-            }
-          /> */}
+
+         
 
           <div className="submit-container">
             <button className="submit" id="">

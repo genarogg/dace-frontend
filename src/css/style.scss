@@ -35,5 +35,14 @@ button {
   }
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3d65fd;
+  border-radius: 10px;
+}
+
 @import "../components/views/dashboard/css/dashboard";
 @import "../components/layouts/spinner/sass/spinner";

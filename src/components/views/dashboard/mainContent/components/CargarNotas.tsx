@@ -2,22 +2,9 @@ import React, { useState, useEffect } from "react";
 import ContainerInput from "@form/ContainerInput";
 import BannerPosition from "./global/BannerPosition";
 
-import updateData from "./global/updateData";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-import {
-  BsEnvelopeFill,
-  BsFillCalendar2HeartFill,
-  BsFillHouseDoorFill,
-} from "react-icons/bs";
-
-import {
-  RiUser2Fill,
-  RiUser2Line,
-  RiUser3Fill,
-  RiUser3Line,
-} from "react-icons/ri";
-
-import { FaMobileRetro, FaVenusMars, FaMapPin } from "react-icons/fa6";
+import { RxActivityLog } from "react-icons/rx";
 
 import Select from "@form/Select";
 
@@ -27,23 +14,16 @@ interface CargarNotasProps {}
 
 const CargarNotas: React.FC<CargarNotasProps> = () => {
   const [formData, setFormData] = useState({
-    email: "",
-    firstName: "",
-    secondName: "",
-    firstSurname: "",
-    secondSurname: "",
-    birthdate: "",
-    direction: "",
-    phoneNumber: "",
-    sex: "",
-    parroquia: "",
-    etnia: "",
+    materia: "",
+    estudiantes: [] as any[],
   });
+
+  const [info, setInfo] = useState<any[]>([]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch(`${BACKEND_URL}/nota/carga-profesor`, {
+    fetch(`${BACKEND_URL}/notas/cargar`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -52,20 +32,86 @@ const CargarNotas: React.FC<CargarNotasProps> = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setFormData(data);
+        setInfo(data);
       });
   }, []);
+
+  // Transformar los datos de la materia
+  const materiaData = info.map((materia: any) => ({
+    value: materia.MateriaId,
+    text: materia.nombre,
+  }));
+
+  const handleMateriaChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedMateriaId = Number(e.target.value);
+
+    if (!selectedMateriaId) {
+      return;
+    }
+
+    const estudiantes = info[selectedMateriaId - 1].estudiantes;
+
+    setFormData({ ...formData, materia: e.target.value, estudiantes });
+  };
 
   return (
     <>
       <BannerPosition title="Cambiar Informacion" />
-      <div className="perfil new-pass-container login front">
+      <div className="perfil  login container-nota-estudiante">
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            updateData(formData);
           }}
-        ></form>
+        >
+          <Select
+            icono={<RxActivityLog />}
+            data={materiaData}
+            name="materia"
+            placeholder={"Seleccione la materia"}
+            value={formData.materia}
+            content={true}
+            valueChange={(e: any) => {
+              handleMateriaChange(e);
+            }}
+          />
+
+          <TransitionGroup className="container-notas">
+            {formData.estudiantes.length !== 0 && (
+              <div className="nota-titulo">
+                <label>Nombre</label>
+                <label>Cédula</label>
+                <label>Nota</label>
+              </div>
+            )}
+            {formData.estudiantes.map((estudiante, index) => (
+              <CSSTransition
+                key={estudiante.id}
+                timeout={500}
+                classNames="item"
+              >
+                <div className="nota-input">
+                  <label>
+                    {estudiante.nombre} {estudiante.apellido}
+                  </label>
+                  <label>{estudiante.cedula}</label>
+                  <ContainerInput
+                    type="number"
+                    name={`nota-${estudiante.id}`}
+                    placeholder="Nota"
+                    value={estudiante.nota || ""}
+                    valueChange={(e) => {
+                      let estudiantes = [...formData.estudiantes];
+                      estudiantes[index].nota = Number(e.target.value);
+                      setFormData({ ...formData, estudiantes });
+                    }}
+                    min={1}
+                    max={10}
+                  />
+                </div>
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
+        </form>
       </div>
     </>
   );

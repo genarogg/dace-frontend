@@ -54,6 +54,7 @@ const Initial: React.FC<InitialProps> = ({ setContext }) => {
       <Btn
         img={"/dashboard/3-salir-2.png"}
         text="Cerrar sesión"
+        css="btn-logout"
         action={() => {
           logOut();
         }}

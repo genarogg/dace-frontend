@@ -43,7 +43,6 @@
     row-gap: 35px;
     width: 100%;
 
-
     .main {
       @include cuadrado(250px, 200px);
 
@@ -110,7 +109,14 @@
     }
   }
 }
+
+@media screen and (max-width: 1185px) {
+  .dashboard .container-main .main.btn-logout {
+    order: 7;
+  }
+}
+
 @import "./bannerPosition";
 @import "./newPass";
 @import "./perfil";
-
+@import "./cargarNotas";

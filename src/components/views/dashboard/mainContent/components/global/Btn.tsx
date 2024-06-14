@@ -4,11 +4,12 @@ interface BtnProps {
   img: string;
   text: string;
   action: () => void;
+  css?: string;
 }
 
-const Btn: React.FC<BtnProps> = ({ img, text, action }) => {
+const Btn: React.FC<BtnProps> = ({ img, text, action, css }) => {
   return (
-    <div className="main">
+    <div className={`main ${css}`}>
       <button
         onClick={() => {
           action();
@@ -18,8 +19,8 @@ const Btn: React.FC<BtnProps> = ({ img, text, action }) => {
           <Image
             src={img}
             alt="Descripción de la imagen"
-            width={100} 
-            height={100} 
+            width={100}
+            height={100}
           />
         </div>
         <div className="container-text">
