@@ -3,11 +3,9 @@ import { toast, Bounce } from "react-toastify";
 
 import { BACKEND_URL } from "@env";
 
-
 const cargarNotasSutmit = (formData: any) => {
-  
   const token = localStorage.getItem("token");
-  
+
   fetch(`${BACKEND_URL}/notas/cargar`, {
     method: "PUT",
     headers: {

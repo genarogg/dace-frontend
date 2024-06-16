@@ -5,6 +5,8 @@ import Initial from "./components/Initial";
 import NewPass from "./components/NewPass";
 import Perfil from "./components/Perfil";
 
+import Horarios from "./components/Horarios";
+
 import CargarNotas from "./components/CargarNotas";
 
 interface MainContentProps {
@@ -22,7 +24,7 @@ const MainContent: React.FC<MainContentProps> = ({ context, setContext }) => {
       case "cambio-de-contrasena":
         return <NewPass />;
       case "consultar-horario":
-        return <Demo />;
+        return <Horarios />;
       case "cargar-notas":
         return <CargarNotas />;
       default:

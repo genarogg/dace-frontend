@@ -16,7 +16,14 @@ const Header: React.FC<HeaderProps> = ({
   context,
   setContext,
 }) => {
-  const [user, setUser] = useState(null);
+  type User = {
+    nombre: string;
+    apellido: string;
+    correo: string;
+    id: string;
+  };
+
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const userData = localStorage.getItem("usuario");

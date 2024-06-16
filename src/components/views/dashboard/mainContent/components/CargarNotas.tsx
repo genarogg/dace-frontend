@@ -57,7 +57,7 @@ const CargarNotas: React.FC<CargarNotasProps> = () => {
 
   return (
     <>
-      <BannerPosition title="Cambiar Informacion" />
+      <BannerPosition title="Cargar Notas" />
       <div className="perfil  login container-nota-estudiante">
         <form
           onSubmit={(e) => {

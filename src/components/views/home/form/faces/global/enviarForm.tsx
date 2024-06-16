@@ -18,11 +18,11 @@ const handleSubmit = async (
 
   const token = await executeRecaptcha("login");
 
-  await setFormData((prevState: any) => ({
+/*   await setFormData((prevState: any) => ({
     ...prevState,
     captcha: token,
   }));
-
+ */
   const { correo, contrasena } = formData;
 
   const data = {
@@ -58,17 +58,18 @@ const handleSubmit = async (
       }
 
       //resetear el info
-      localStorage.removeItem("token");
-      localStorage.removeItem("usuario");
+      /* localStorage.removeItem("token");
+      localStorage.removeItem("usuario"); */
 
-      if (formData.remenber) {
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("usuario", JSON.stringify(data.infoUser));
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("usuario", JSON.stringify(data.infoUser));
+
+      /* if (formData.remenber) {
       } else {
         sessionStorage.setItem("token", data.token);
         sessionStorage.setItem("usuario", JSON.stringify(data.infoUser));
       }
-
+ */
       toast.success(data.mensaje, {
         position: "top-right",
         autoClose: 5000,
@@ -81,7 +82,7 @@ const handleSubmit = async (
         transition: Bounce,
       });
 
-      console.log(data.infoUser);
+      /* console.log(data.infoUser); */
 
       //redireccionar el usuario con el api de nextjs
       router.push("/dashboard");
