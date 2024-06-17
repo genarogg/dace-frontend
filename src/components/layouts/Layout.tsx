@@ -24,7 +24,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
   useEffect(() => {
     const tokenLocal = localStorage.getItem("token");
 
-    fetch(`${BACKEND_URL}/login/token`, {
+    fetch(`${BACKEND_URL}/auth/token`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

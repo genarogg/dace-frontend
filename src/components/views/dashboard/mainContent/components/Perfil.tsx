@@ -44,7 +44,7 @@ const UserData: React.FC<UserDataProps> = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch(`${BACKEND_URL}/usuario/data`, {
+    fetch(`${BACKEND_URL}/user/data`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
