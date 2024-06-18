@@ -24,7 +24,7 @@ const CargarNotas: React.FC<CargarNotasProps> = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch(`${BACKEND_URL}/notas/cargar`, {
+    fetch(`${BACKEND_URL}/notas/obtener`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -38,9 +38,10 @@ const CargarNotas: React.FC<CargarNotasProps> = () => {
   }, []);
 
   // Transformar los datos de la materia
-  const materiaData = info.map((materia: any) => ({
-    value: materia.MateriaId,
-    text: materia.nombre,
+
+  const materiaData = info.map((item: any) => ({
+    value: item.materia.id,
+    text: item.materia.nombre,
   }));
 
   const handleMateriaChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -50,10 +51,12 @@ const CargarNotas: React.FC<CargarNotasProps> = () => {
       return;
     }
 
-    const estudiantes = info[selectedMateriaId - 1].estudiantes;
+    const estudiantes = info[selectedMateriaId - 1].estudiantesInscritos;
 
     setFormData({ ...formData, materia: e.target.value, estudiantes });
   };
+
+
 
   return (
     <>
