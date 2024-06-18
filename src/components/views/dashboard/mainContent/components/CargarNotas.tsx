@@ -107,7 +107,8 @@ const CargarNotas: React.FC<CargarNotasProps> = () => {
                     name={`nota-${estudiante.id}`}
                     placeholder="Nota"
                     value={estudiante.nota || ""}
-                    required={false}
+                    required={true}
+                 
                     valueChange={(e) => {
                       let estudiantes = [...formData.estudiantes];
                       estudiantes[index].nota = Number(e.target.value);

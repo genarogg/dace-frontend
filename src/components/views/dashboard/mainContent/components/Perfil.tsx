@@ -23,7 +23,6 @@ import Select from "@form/Select";
 
 import { BACKEND_URL } from "@env";
 
-
 interface UserDataProps {}
 
 const UserData: React.FC<UserDataProps> = () => {
@@ -102,6 +101,7 @@ const UserData: React.FC<UserDataProps> = () => {
             valueChange={(e) =>
               setFormData({ ...formData, firstName: e.target.value })
             }
+            disabled={true}
           />
           <ContainerInput
             type="text"
@@ -113,6 +113,7 @@ const UserData: React.FC<UserDataProps> = () => {
             valueChange={(e) =>
               setFormData({ ...formData, secondName: e.target.value })
             }
+            disabled={true}
           />
           <ContainerInput
             type="text"
@@ -124,6 +125,7 @@ const UserData: React.FC<UserDataProps> = () => {
             valueChange={(e) =>
               setFormData({ ...formData, firstSurname: e.target.value })
             }
+            disabled={true}
           />
           <ContainerInput
             type="text"
@@ -135,6 +137,7 @@ const UserData: React.FC<UserDataProps> = () => {
             valueChange={(e) =>
               setFormData({ ...formData, secondSurname: e.target.value })
             }
+            disabled={true}
           />
           <ContainerInput
             type="date"
@@ -183,8 +186,6 @@ const UserData: React.FC<UserDataProps> = () => {
               setFormData({ ...formData, parroquia: e.target.value })
             }
           />
-
-         
 
           <div className="submit-container">
             <button className="submit" id="">
