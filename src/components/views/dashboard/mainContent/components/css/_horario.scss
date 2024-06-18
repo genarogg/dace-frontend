@@ -1,0 +1,67 @@
+.horario {
+  .gridjs-container {
+    /* min-width: 700px; */
+    overflow-x: auto;
+  }
+  .gridjs-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #383838;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .gridjs {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    .gridjs-thead {
+      background: $azul;
+      color: #fff;
+
+      .gridjs-th {
+        padding: 10px;
+      }
+    }
+
+    .gridjs-tbody {
+      .gridjs-td {
+        padding: 10px;
+
+        &[data-column-id="sección"] {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+  .horario {
+    .gridjs-container {
+      .gridjs-table {
+        th[data-column-id="código"],
+        td[data-column-id="código"],
+        th[data-column-id="sección"],
+        td[data-column-id="sección"] {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .horario {
+    .gridjs-container {
+      .gridjs-table {
+        th[data-column-id="código"],
+        td[data-column-id="código"],
+        th[data-column-id="sección"],
+        td[data-column-id="sección"] {
+          display: none;
+        }
+      }
+    }
+  }
+}

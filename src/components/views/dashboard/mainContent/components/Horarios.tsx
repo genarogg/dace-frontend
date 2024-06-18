@@ -1,22 +1,52 @@
-import { FaConnectdevelop } from "react-icons/fa6";
-import Btn from "./global/Btn";
+import React, { useState, useEffect } from "react";
 
-interface DemoProps {}
+import { BACKEND_URL } from "@env";
 
-const Demo: React.FC<DemoProps> = () => {
-  const action = () => {
-    console.log("Action");
-  };
+import BannerPosition from "./global/BannerPosition";
+
+interface HorariosProps {}
+
+import { Grid } from "gridjs-react";
+
+const Horarios: React.FC<HorariosProps> = () => {
+  const [horariosData, setHorariosData] = useState([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    fetch(`${BACKEND_URL}/user/horario`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setHorariosData(data);
+      });
+  }, []);
+
+  const columns = ["Código", "Materia", "Sección", "Clase", "Aula"];
+
+  const data = horariosData.flatMap((data: any) =>
+    data.horario.map((horario: any) => [
+      data.materia.codigo,
+      data.materia.nombre,
+      data.materia.seccion,
+      `${horario.dia}: ${horario.horaInicio} - ${horario.horaFin}`,
+      horario.aula,
+    ])
+  );
+
   return (
-    <div className="container-main">
-      <Btn img={"/dashboard/3-salir-2.png"} action={action} text="Text" />
-      <Btn img={"/dashboard/3-salir-2.png"} action={action} text="Text" />
-      <Btn img={"/dashboard/3-salir-2.png"} action={action} text="Text" />
-      <Btn img={"/dashboard/3-salir-2.png"} action={action} text="Text" />
-      <Btn img={"/dashboard/3-salir-2.png"} action={action} text="Text" />
-      <Btn img={"/dashboard/3-salir-2.png"} action={action} text="Text" />
-    </div>
+    <>
+      <BannerPosition title="horario" />
+      <div className="horario">
+        <Grid data={data} columns={columns} />
+      </div>
+    </>
   );
 };
 
-export default Demo;
+export default Horarios;
