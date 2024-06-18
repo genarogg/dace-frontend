@@ -19,12 +19,12 @@ const Initial: React.FC<InitialProps> = ({ setContext }) => {
   };
 
   const uploadNotes = () => {
-    /* setContext(""); */
+    setContext("cargar-notas");
     console.log("uploadNotes");
   };
 
   const checkSchedule = () => {
-    /* setContext(""); */
+    setContext("consultar-horario");
     console.log("checkSchedule");
   };
 
