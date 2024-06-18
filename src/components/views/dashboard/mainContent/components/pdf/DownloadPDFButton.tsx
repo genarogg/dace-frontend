@@ -8,9 +8,14 @@ import { Icono } from "@nano";
 interface DownloadPDFbtnProps {
   document: any;
   text: string;
+
 }
 
-const DownloadPDFbtn: React.FC<DownloadPDFbtnProps> = ({ document, text }) => {
+const DownloadPDFbtn: React.FC<DownloadPDFbtnProps> = ({
+  document,
+  text,
+
+}) => {
   return (
     <BlobProvider document={document}>
       {({ blob, url, loading, error }) => {

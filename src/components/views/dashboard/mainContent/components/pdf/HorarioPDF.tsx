@@ -77,105 +77,23 @@ const styles = StyleSheet.create({
   },
 });
 
-// Crea el documento
-const HorarioPDF = () => {
-  const data = [
-    {
-      "COD. MATERIA": "ID8082",
-      "NOMBRE MATERIA": "PASANTIA",
-      HORARIOS: [
-        {
-          SECCIÓN: "1",
-          CLASE: "NO PRESENCIAL: 08:00 - 10:00",
-          AULA: "A distancia",
-        },
-      ],
-    },
-    {
-      "COD. MATERIA": "IC7322",
-      "NOMBRE MATERIA": "SISTEMAS OPERATIVOS",
-      HORARIOS: [
-        {
-          SECCIÓN: "2",
-          CLASE: "-",
-          AULA: "-",
-        },
-        {
-          SECCIÓN: "",
-          CLASE: "NO PRESENCIAL: 08:00 - 10:00",
-          AULA: "A distancia",
-        },
-        {
-          SECCIÓN: "",
-          CLASE: "MIÉRCOLES: 14:35 - 16:35",
-          AULA: "8",
-        },
-      ],
-    },
-    {
-      "COD. MATERIA": "EL9325",
-      "NOMBRE MATERIA": "ELECTIVA LIBRE I",
-      HORARIOS: [
-        {
-          SECCIÓN: "2",
-          CLASE: "-",
-          AULA: "-",
-        },
-        {
-          SECCIÓN: "2",
-          CLASE: "NO PRESENCIAL: 08:00 - 10:00",
-          AULA: "A distancia",
-        },
-        {
-          SECCIÓN: "",
-          CLASE: "LUNES: 13:15 - 15:15",
-          AULA: "15",
-        },
-      ],
-    },
-    {
-      "COD. MATERIA": "IS8424",
-      "NOMBRE MATERIA": "SISTEMAS DE INFORMACION III",
-      HORARIOS: [
-        {
-          SECCIÓN: "2",
-          CLASE: "-",
-          AULA: "-",
-        },
-        {
-          SECCIÓN: "1",
-          CLASE: "NO PRESENCIAL: 08:00 - 10:00",
-          AULA: "A distancia",
-        },
-        {
-          SECCIÓN: "",
-          CLASE: "VIERNES: 07:45 - 09:50",
-          AULA: "8",
-        },
-      ],
-    },
-    {
-      "COD. MATERIA": "PG9083",
-      "NOMBRE MATERIA": "PROYECTO DE GRADO I",
-      HORARIOS: [
-        {
-          SECCIÓN: "2",
-          CLASE: "-",
-          AULA: "-",
-        },
-        {
-          SECCIÓN: "1",
-          CLASE: "MIÉRCOLES: 07:45 - 09:50",
-          AULA: "Grado",
-        },
-        {
-          SECCIÓN: "",
-          CLASE: "LUNES: 07:45 - 09:50",
-          AULA: "Grado",
-        },
-      ],
-    },
-  ];
+interface HorariosPDFProps {
+  data: any;
+}
+
+const HorarioPDF: React.FC<HorariosPDFProps> = ({ data }) => {
+  console.log(data);
+  const transformData = (data: any) => {
+    return data.map((item: any) => ({
+      "COD. MATERIA": item.materia.codigo,
+      "NOMBRE MATERIA": item.materia.nombre,
+      HORARIOS: item.horario.map((horario: any) => ({
+        SECCIÓN: item.materia.seccion,
+        CLASE: `${horario.dia}: ${horario.horaInicio} - ${horario.horaFin}`,
+        AULA: horario.aula,
+      })),
+    }));
+  };
 
   const Table = ({ data }: any) => {
     return (
@@ -237,10 +155,14 @@ const HorarioPDF = () => {
       <Text>D.A.C.E - Página 1 de 1</Text>
     </View>
   );
+  const today = new Date();
 
   const Header = () => {
     return (
       <View>
+        <Text style={[styles.header, styles.fecha]}>
+          {today.toLocaleDateString("es-ES")}
+        </Text>
         <Text style={styles.title}>
           UNIVERSIDAD NACIONAL EXPERIMENTAL RÓMULO GALLEGOS
         </Text>
@@ -250,22 +172,33 @@ const HorarioPDF = () => {
     );
   };
 
-  //funcion para generar la fecha de hoy en formato dd/mm/yyyy
-  const today = new Date();
+  const InfoUser = ({ cedula, nombre, apellido, carrera, periodo }: any) => {
+    return (
+      <Text style={styles.section}>
+        {`C.I.: ${cedula} - ${nombre} ${apellido}\n`}
+        {`CARRERA: ${carrera}\n`}
+        {`PERÍODO: ${periodo} - Inscripcion`}
+      </Text>
+    );
+  };
+
+  const dataUser = {
+    cedula: data[0]?.profesor?.cedula || "",
+    nombre:
+      data[0]?.profesor?.nombre + " " + data[0]?.profesor?.segundoNombre || "",
+    apellido: data[0]?.profesor?.apellido || "",
+    carrera: "INGENIERIA EN INFORMATICA - INGENIERIA DE SISTEMAS",
+    periodo: "2021-1",
+  };
 
   return (
     <Document>
       <Page style={styles.page}>
         <Header />
         <Text style={[styles.header, styles.horario]}>HORARIO DE CLASES</Text>
-        <Text style={styles.section}>
-          C.I.: 25074591 - González González Genaro Octavio{"\n"}
-          CARRERA: (601) INGENIERIA EN INFORMATICA - INGENIERIA DE SISTEMAS (SAN
-          JUAN DE LOS MORROS){"\n"}
-          PERÍODO: 20241 - Inscripcion
-        </Text>
+        <InfoUser {...dataUser} />
         {/* tabla */}
-        <Table data={data} />
+        <Table data={transformData(data)} />
         <Text style={[styles.header, styles.fecha]}>SCIH - 5311632609</Text>
         <Footer />
       </Page>

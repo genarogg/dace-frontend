@@ -51,7 +51,10 @@ const Horarios: React.FC<HorariosProps> = () => {
       </div>
 
       <div className="containerDescargarPdf">
-        <DownloadPDFButton document={<HorarioPDF />} text="Descargar PDF" />
+        <DownloadPDFButton
+          document={<HorarioPDF data={horariosData} />}
+          text="Descargar PDF"
+        />
       </div>
     </>
   );
