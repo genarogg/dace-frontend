@@ -8,6 +8,9 @@ interface HorariosProps {}
 
 import { Grid } from "gridjs-react";
 
+import DownloadPDFButton from "./pdf/DownloadPDFButton";
+import HorarioPDF from "./pdf/HorarioPDF";
+
 const Horarios: React.FC<HorariosProps> = () => {
   const [horariosData, setHorariosData] = useState([]);
 
@@ -42,8 +45,13 @@ const Horarios: React.FC<HorariosProps> = () => {
   return (
     <>
       <BannerPosition title="horario" />
+
       <div className="horario">
         <Grid data={data} columns={columns} />
+      </div>
+
+      <div className="containerDescargarPdf">
+        <DownloadPDFButton document={<HorarioPDF />} text="Descargar PDF" />
       </div>
     </>
   );

@@ -1,0 +1,44 @@
+.containerDownload {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $azul;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+    .icono {
+      color: #fff;
+        margin-right: 10px;
+    }
+  }
+  a:hover {
+    background-color: #0056b3;
+  }
+  a:active {
+    background-color: #0056b3;
+  }
+  a:focus {
+    background-color: #0056b3;
+  }
+  a:visited {
+    background-color: #0056b3;
+  }
+  a:link {
+    background-color: $azul;
+  }
+  a:disabled {
+    background-color: #0056b3;
+  }
+}

@@ -39,10 +39,15 @@ const CargarNotas: React.FC<CargarNotasProps> = () => {
 
   // Transformar los datos de la materia
 
-  const materiaData = info.map((item: any) => ({
-    value: item.materia.id,
-    text: item.materia.nombre,
-  }));
+  const materiaData = info
+    .filter(
+      (item: any) =>
+        item.estudiantesInscritos && item.estudiantesInscritos.length > 0
+    )
+    .map((item: any) => ({
+      value: item.materia.id,
+      text: item.materia.nombre,
+    }));
 
   const handleMateriaChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedMateriaId = Number(e.target.value);
@@ -55,8 +60,6 @@ const CargarNotas: React.FC<CargarNotasProps> = () => {
 
     setFormData({ ...formData, materia: e.target.value, estudiantes });
   };
-
-
 
   return (
     <>
