@@ -1,0 +1,37 @@
+.bitacora-login {
+  .gridjs.gridjs-container {
+    max-width: 700px;
+
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+  .bitacora-login {
+    .gridjs-container {
+      .gridjs-table {
+        th[data-column-id="userAgent"],
+        td[data-column-id="userAgent"],
+        th[data-column-id="sección"],
+        td[data-column-id="sección"] {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .bitacora-login {
+    .gridjs-container {
+      .gridjs-table {
+        th[data-column-id="userAgent"],
+        td[data-column-id="userAgent"],
+        th[data-column-id="sección"],
+        td[data-column-id="sección"] {
+          display: none;
+        }
+      }
+    }
+  }
+}

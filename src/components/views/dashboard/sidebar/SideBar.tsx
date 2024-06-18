@@ -13,6 +13,12 @@ import { TiUser } from "react-icons/ti";
 import { GoHomeFill } from "react-icons/go";
 import { HiMiniAcademicCap } from "react-icons/hi2";
 
+import { CgTimelapse } from "react-icons/cg";
+import { FaCalendarCheck } from "react-icons/fa6";
+import { FaUserLock } from "react-icons/fa6";
+import { FaRegRectangleList } from "react-icons/fa6";
+import { logOut } from "../mainContent/components/global/cerrarSeccion";
+
 interface SideBarProps {
   children?: React.ReactNode;
   setContext: React.Dispatch<React.SetStateAction<string>>;
@@ -79,9 +85,44 @@ const SideBar: React.FC<SideBarProps> = ({
                 context={context}
               />
             </Section>
+
+            <Section title={"Bitacora"} icono={<FaCalendarCheck />}>
+              <Element
+                text={"Registros de inicio"}
+                icono={<FaUserLock />}
+                setContext={setContext}
+                setIsActive={setIsActive}
+                context={context}
+              />
+
+              <Element
+                text={"Registros de notas"}
+                icono={<FaRegRectangleList />}
+                setContext={setContext}
+                setIsActive={setIsActive}
+                context={context}
+              />
+
+              {/* <Element
+                text={"Carga de notas"}
+                icono={<PiNotebookFill />}
+                setContext={setContext}
+                setIsActive={setIsActive}
+                context={context}
+              /> */}
+            </Section>
           </ul>
         </nav>
       </aside>
+      <div className="salirBtn">
+        <button
+          onClick={() => {
+            logOut();
+          }}
+        >
+          cerrar sesion
+        </button>
+      </div>
     </div>
   );
 };

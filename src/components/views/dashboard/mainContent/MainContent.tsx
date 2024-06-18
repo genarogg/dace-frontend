@@ -9,6 +9,9 @@ import Horarios from "./components/Horarios";
 
 import CargarNotas from "./components/CargarNotas";
 
+import BitacoraLogin from "./components/BitacoraLogin";
+import BitacoraNotas from "./components/BitacoraNotas";
+
 interface MainContentProps {
   context: string;
   setContext: React.Dispatch<React.SetStateAction<string>>;
@@ -27,6 +30,10 @@ const MainContent: React.FC<MainContentProps> = ({ context, setContext }) => {
         return <Horarios />;
       case "cargar-notas":
         return <CargarNotas />;
+      case "registros-de-inicio":
+        return <BitacoraLogin />;
+      case "registros-de-notas":
+        return <BitacoraNotas />;
       default:
         return <Demo />;
     }
