@@ -4,6 +4,7 @@
 @import "../sidebar/css/sideBar";
 @import "../sidebar/css/sideBarMiniMenu";
 @import "../mainContent/components/css/main-content.scss";
+@import "./header";
 
 .dashboard {
   @include center-x;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { A, Gravatar, BtnHamburgues } from "@nano";
 import { CSSTransition } from "react-transition-group";
 import SideBar from "./sidebar/SideBar";
-
+import { logOut } from "./mainContent/components/global/cerrarSeccion";
 interface HeaderProps {
   children?: React.ReactNode;
   where?: string;
@@ -44,15 +44,35 @@ const Header: React.FC<HeaderProps> = ({
   };
 
   const Avatar = () => {
+    const [showTooltip, setShowTooltip] = useState(false);
+    const [show, setShow] = useState(false);
+    const handleAvatarClick = () => {
+      setShowTooltip(!showTooltip);
+
+      setTimeout(() => {
+        setShow(!showTooltip);
+      }, 100);
+    };
+
     return (
       <li>
-        <div className="user-img">
+        <button onClick={handleAvatarClick} className="user-img">
           {user && <Gravatar email={user.correo} />}
-        </div>
+        </button>
+        {showTooltip && (
+          <div className={`tooltip ${show ? "show" : ""}`}>
+            <button
+              onClick={() => {
+                logOut();
+              }}
+            >
+              Cerrar sesión
+            </button>
+          </div>
+        )}
       </li>
     );
   };
-
   const Name = () => {
     return (
       <li>

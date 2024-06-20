@@ -1,0 +1,50 @@
+.dashboard {
+  .header-container {
+    .tooltip-enter {
+      opacity: 0;
+    }
+
+    .tooltip-enter-active {
+      opacity: 1;
+      transition: opacity 300ms;
+    }
+
+    .tooltip-exit {
+      opacity: 1;
+    }
+
+    .tooltip-exit-active {
+      opacity: 0;
+      transition: opacity 300ms;
+    }
+
+    .tooltip {
+      position: absolute;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      width: 150px;
+      height: 24px;
+      left: -69px;
+
+      bottom: -45px;
+      border-radius: 10px;
+
+      box-shadow: 0px 0 30px rgba(1, 41, 112, 0.2);
+      transition: opacity 0.5s ease;
+      opacity: 0;
+
+      button {
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $azul;
+      }
+    }
+
+    .tooltip.show {
+      opacity: 1;
+    }
+  }
+}
