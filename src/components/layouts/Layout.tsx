@@ -21,8 +21,8 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
 }) => {
   const [isLoading, setIsLoading] = useState(true);
 
-/*   useEffect(() => {
-    const tokenLocal = localStorage.getItem("token");
+  useEffect(() => {
+   /*  const tokenLocal = localStorage.getItem("token");
 
     fetch(`${BACKEND_URL}/auth/token`, {
       method: "POST",
@@ -48,8 +48,9 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
         if (window.location.pathname === "/dashboard") {
           setIsLoading(false);
         }
-      });
-  }, []); */
+      }); */
+      setIsLoading(false);
+  }, []);
 
   return (
     <div className={`container-all initial ${where}`}>
