@@ -2,7 +2,7 @@ import router from "next/router";
 import Btn from "./global/Btn";
 
 import { logOut } from "./global/cerrarSeccion";
-
+import BannerPosition from "./global/BannerPosition";
 interface InitialProps {
   setContext: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -35,6 +35,7 @@ const Initial: React.FC<InitialProps> = ({ setContext }) => {
 
   return (
     <div className="container-main">
+      {/*   <BannerPosition title="inicio" /> */}
       <Btn
         img={"/dashboard/1-datos.png"}
         text="Mis datos"
