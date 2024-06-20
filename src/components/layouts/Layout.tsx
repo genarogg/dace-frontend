@@ -21,7 +21,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
 }) => {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
+/*   useEffect(() => {
     const tokenLocal = localStorage.getItem("token");
 
     fetch(`${BACKEND_URL}/auth/token`, {
@@ -49,7 +49,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
           setIsLoading(false);
         }
       });
-  }, []);
+  }, []); */
 
   return (
     <div className={`container-all initial ${where}`}>
