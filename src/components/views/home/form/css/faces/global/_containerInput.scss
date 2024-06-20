@@ -3,7 +3,7 @@
   border: 1px solid $border-color;
   border-radius: 10px;
   display: grid;
-  grid-template-columns: 1fr 7fr;
+  grid-template-columns: 1fr 7fr 0.5fr;
   height: 46px;
   position: relative;
   width: 100%;
@@ -65,6 +65,24 @@
       font-size: 14px;
       font-weight: 600;
       top: 0 !important;
+    }
+  }
+
+  .view-pass {
+    @include center;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    height: 100%;
+    position: relative;
+    width: 10%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+      color: $azul;
     }
   }
 }

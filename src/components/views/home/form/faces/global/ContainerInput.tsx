@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FaRegEye } from "react-icons/fa6";
+import { FaRegEyeSlash } from "react-icons/fa6";
 
 import { Icono } from "@nano";
 interface ContainerInputProps {
@@ -32,10 +34,16 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasContent, setHasContent] = useState(hasContentState);
+  const [inputType, setInputType] = useState(type); // Nuevo estado para el tipo de entrada
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setHasContent(event.target.value !== "");
     valueChange(event);
+  };
+
+  const togglePasswordVisibility = () => {
+    // Nueva función para cambiar la visibilidad de la contraseña
+    setInputType(inputType === "password" ? "text" : "password");
   };
 
   return (
@@ -45,7 +53,7 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
       </label>
 
       <input
-        type={type}
+        type={inputType} // Usar inputType en lugar de type
         name={name}
         required={required}
         disabled={disabled}
@@ -57,6 +65,24 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
         {...(min ? { min } : {})}
         {...(max ? { max } : {})}
       />
+
+      {type === "password" && ( // Si el tipo es password, mostrar el botón
+        <button
+          className="view-pass"
+          type="button"
+          onClick={togglePasswordVisibility}
+        >
+          {inputType === "password" ? (
+            <label>
+              <Icono icono={<FaRegEye />} />
+            </label>
+          ) : (
+            <label>
+              <Icono icono={<FaRegEyeSlash />} />
+            </label>
+          )}
+        </button>
+      )}
       <span className={`holder ${hasContent ? "has-content" : ""}`}>
         {placeholder}
       </span>
