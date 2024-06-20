@@ -1,15 +1,23 @@
-import React, { useState, useEffect } from "react";
-import ContainerInput from "@form/ContainerInput";
+import React, { useState, useEffect, useRef } from "react";
+
 import BannerPosition from "./global/BannerPosition";
+
 import { Grid } from "gridjs-react";
-import cargarNotasSutmit from "./global/cargarNotasSutmit";
+
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+
 import { RxActivityLog } from "react-icons/rx";
+
+import DownloadPDFButton from "./pdf/DownloadPDFButton";
 
 import Select from "@form/Select";
 
 import { BACKEND_URL } from "@env";
+
+import BitacoraNotasPDF from "./pdf/BitacoraNotasPDF";
 
 interface BitacoraNotasProps {}
 
@@ -20,7 +28,7 @@ const BitacoraNotas: React.FC<BitacoraNotasProps> = () => {
   });
 
   const [info, setInfo] = useState<any[]>([]);
-
+  pdfMake.vfs = pdfFonts.pdfMake.vfs;
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -64,12 +72,10 @@ const BitacoraNotas: React.FC<BitacoraNotasProps> = () => {
 
   const columns = ["ID", "Nombre", "Apellido", "Cédula", "Nota"];
 
-  const data = formData.estudiantes.map((estudiante: any) => [
-    estudiante.id,
+  const data = formData.estudiantes.map((estudiante: any, index: number) => [
+    index + 1,
     estudiante.nombre,
-
     estudiante.apellido,
-
     estudiante.cedula,
     estudiante.nota,
   ]);
@@ -77,7 +83,7 @@ const BitacoraNotas: React.FC<BitacoraNotasProps> = () => {
   return (
     <>
       <BannerPosition title="Notas cargadas" />
-      <div className="perfil  login container-nota-estudiante">
+      <div className=" notasCargadas perfil  login">
         <form>
           <Select
             icono={<RxActivityLog />}
@@ -93,9 +99,21 @@ const BitacoraNotas: React.FC<BitacoraNotasProps> = () => {
           <TransitionGroup className="container-notas">
             {formData.estudiantes.length !== 0 && (
               <CSSTransition in={true} timeout={500} classNames="item">
-                <div className="notasCargadas horario">
-                  <Grid data={data} columns={columns} />
-                </div>
+                <>
+                  <div className=" horario">
+                    <Grid data={data} columns={columns} />
+                  </div>
+                  <div className="containerDescargarPdf">
+                    <DownloadPDFButton
+                      document={
+                        <BitacoraNotasPDF
+                          data={info[parseInt(formData.materia) - 1]}
+                        />
+                      }
+                      text="Descargar PDF"
+                    />
+                  </div>
+                </>
               </CSSTransition>
             )}
           </TransitionGroup>

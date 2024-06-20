@@ -1,3 +1,12 @@
-.notasCargadas .container-nota-estudiante .item-enter-done{
-display: block !important;
+.notasCargadas {
+  .horario.item-enter-done {
+    display: flex;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
+

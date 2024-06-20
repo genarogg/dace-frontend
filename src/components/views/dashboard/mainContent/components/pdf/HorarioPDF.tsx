@@ -1,6 +1,8 @@
 import React from "react";
 import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
 
+import Layout from "./global/Layout";
+
 // Crea estilos
 const styles = StyleSheet.create({
   page: {
@@ -12,11 +14,8 @@ const styles = StyleSheet.create({
     fontSize: 10,
     textAlign: "center",
     fontWeight: "bold",
-    /* marginBottom: 10, */
   },
-  section: {
-    /*  */
-  },
+
   header: {
     fontSize: 11,
   },
@@ -25,7 +24,7 @@ const styles = StyleSheet.create({
     width: "auto",
     borderStyle: "solid",
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#fff",
     borderTopLeftRadius: 4,
     borderTopRightRadius: 4,
     borderBottomLeftRadius: 4,
@@ -44,10 +43,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#000",
     borderCollapse: "collapse",
+    height: "18px",
   },
   tableCell: {
     margin: "auto",
     fontSize: 8,
+    height: "18px",
+    paddingTop: 2,
+    textAlign: "center", // Añadido para centrar el texto
   },
   tableHeader: {
     backgroundColor: "#f0f0f0",
@@ -99,10 +102,16 @@ const HorarioPDF: React.FC<HorariosPDFProps> = ({ data }) => {
     return (
       <View style={styles.table}>
         <View style={styles.tableRow}>
-          <View style={[styles.tableCol, styles.tableHeader]}>
+          <View style={[styles.tableCol, styles.tableHeader, { width: "10%" }]}>
             <Text style={styles.tableCell}>COD. MATERIA</Text>
           </View>
-          <View style={[styles.tableCol, styles.tableHeader]}>
+          <View
+            style={[
+              styles.tableCol,
+              styles.tableHeader,
+              { width: "30%", textAlign: "left" },
+            ]}
+          >
             <Text style={styles.tableCell}>NOMBRE MATERIA</Text>
           </View>
           <View style={[styles.tableCol, styles.tableHeader]}>
@@ -119,12 +128,14 @@ const HorarioPDF: React.FC<HorariosPDFProps> = ({ data }) => {
           <View key={subjectIndex}>
             {subject.HORARIOS.map((horario: any, horarioIndex: any) => (
               <View key={horarioIndex} style={styles.tableRow}>
-                <View style={styles.tableCol}>
+                <View style={[styles.tableCol, { width: "10%" }]}>
                   <Text style={styles.tableCell}>
                     {horarioIndex === 0 ? subject["COD. MATERIA"] : ""}
                   </Text>
                 </View>
-                <View style={styles.tableCol}>
+                <View
+                  style={[styles.tableCol, { width: "30%", textAlign: "left" }]}
+                >
                   <Text style={styles.tableCell}>
                     {horarioIndex === 0 ? subject["NOMBRE MATERIA"] : ""}
                   </Text>
@@ -146,35 +157,9 @@ const HorarioPDF: React.FC<HorariosPDFProps> = ({ data }) => {
     );
   };
 
-  const Footer = () => (
-    <View style={styles.footerContainer}>
-      <Text>
-        Este documento sin el sello y la firma de la oficina sectorial de
-        Control de Estudios, no tiene validez
-      </Text>
-      <Text>D.A.C.E - Página 1 de 1</Text>
-    </View>
-  );
-  const today = new Date();
-
-  const Header = () => {
-    return (
-      <View>
-        <Text style={[styles.header, styles.fecha]}>
-          {today.toLocaleDateString("es-ES")}
-        </Text>
-        <Text style={styles.title}>
-          UNIVERSIDAD NACIONAL EXPERIMENTAL RÓMULO GALLEGOS
-        </Text>
-        <Text style={styles.title}>VICERRECTORADO ACADÉMICO</Text>
-        <Text style={styles.title}>DIRECCIÓN DE CONTROL DE ESTUDIOS</Text>
-      </View>
-    );
-  };
-
   const InfoUser = ({ cedula, nombre, apellido, carrera, periodo }: any) => {
     return (
-      <Text style={styles.section}>
+      <Text>
         {`C.I.: ${cedula} - ${nombre} ${apellido}\n`}
         {`CARRERA: ${carrera}\n`}
         {`PERÍODO: ${periodo} - Inscripcion`}
@@ -194,13 +179,13 @@ const HorarioPDF: React.FC<HorariosPDFProps> = ({ data }) => {
   return (
     <Document>
       <Page style={styles.page}>
-        <Header />
-        <Text style={[styles.header, styles.horario]}>HORARIO DE CLASES</Text>
-        <InfoUser {...dataUser} />
-        {/* tabla */}
-        <Table data={transformData(data)} />
-        <Text style={[styles.header, styles.fecha]}>SCIH - 5311632609</Text>
-        <Footer />
+        <Layout>
+          <Text style={[styles.header, styles.horario]}>HORARIO DE CLASES</Text>
+          <InfoUser {...dataUser} />
+          {/* tabla */}
+          <Table data={transformData(data)} />
+          <Text style={[styles.header, styles.fecha]}>SCIH - 5311632609</Text>
+        </Layout>
       </Page>
     </Document>
   );

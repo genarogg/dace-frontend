@@ -27,6 +27,6 @@
       "@env": ["./env.ts"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/views/dashboard/mainContent/MainContent.tsx"],
   "exclude": ["node_modules"]
 }

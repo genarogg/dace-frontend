@@ -53,7 +53,7 @@ const UserData: React.FC<UserDataProps> = () => {
       .then((response) => response.json())
       .then((data) => {
         setFormData(data);
-        console.log(data);
+
       });
   }, []);
 
