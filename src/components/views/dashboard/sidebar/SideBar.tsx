@@ -4,7 +4,6 @@ import { Icono } from "@nano";
 import Section from "./components/Section";
 import Element from "./components/Element";
 
-import { BsEnvelopeHeartFill } from "react-icons/bs";
 import { RiNewspaperFill } from "react-icons/ri";
 import { IoMdLock } from "react-icons/io";
 import { FaClock } from "react-icons/fa";
@@ -18,7 +17,7 @@ import { FaCalendarCheck } from "react-icons/fa6";
 import { FaUserLock } from "react-icons/fa6";
 import { FaRegRectangleList } from "react-icons/fa6";
 import { logOut } from "../mainContent/components/global/cerrarSeccion";
-
+import { FaClipboardList } from "react-icons/fa6";
 interface SideBarProps {
   children?: React.ReactNode;
   setContext: React.Dispatch<React.SetStateAction<string>>;
@@ -54,13 +53,7 @@ const SideBar: React.FC<SideBarProps> = ({
                 setIsActive={setIsActive}
                 context={context}
               />
-              {/* <Element
-                text={"Cambio de email"}
-                icono={<BsEnvelopeHeartFill />}
-                setContext={setContext}
-                setIsActive={setIsActive}
-                context={context}
-              /> */}
+
               <Element
                 text={"Cambio de contraseña"}
                 icono={<IoMdLock />}
@@ -84,6 +77,13 @@ const SideBar: React.FC<SideBarProps> = ({
                 setIsActive={setIsActive}
                 context={context}
               />
+              <Element
+                text={"listados"}
+                icono={<FaClipboardList />}
+                setContext={setContext}
+                setIsActive={setIsActive}
+                context={context}
+              />
             </Section>
 
             <Section title={"Bitacora"} icono={<FaCalendarCheck />}>
@@ -102,14 +102,6 @@ const SideBar: React.FC<SideBarProps> = ({
                 setIsActive={setIsActive}
                 context={context}
               />
-
-              {/* <Element
-                text={"Carga de notas"}
-                icono={<PiNotebookFill />}
-                setContext={setContext}
-                setIsActive={setIsActive}
-                context={context}
-              /> */}
             </Section>
           </ul>
         </nav>

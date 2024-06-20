@@ -11,6 +11,7 @@ import CargarNotas from "./components/CargarNotas";
 
 import BitacoraLogin from "./components/BitacoraLogin";
 import BitacoraNotas from "./components/BitacoraNotas";
+import Listados from "./components/Listados";
 
 interface MainContentProps {
   context: string;
@@ -34,6 +35,8 @@ const MainContent: React.FC<MainContentProps> = ({ context, setContext }) => {
         return <BitacoraLogin />;
       case "registros-de-notas":
         return <BitacoraNotas />;
+      case "listados":
+        return <Listados />;
       default:
         return <Demo />;
     }

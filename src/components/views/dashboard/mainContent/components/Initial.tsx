@@ -29,7 +29,7 @@ const Initial: React.FC<InitialProps> = ({ setContext }) => {
   };
 
   const listingsSection = () => {
-    /* setContext(""); */
+    setContext("listados");
     console.log("listingsSection");
   };
 

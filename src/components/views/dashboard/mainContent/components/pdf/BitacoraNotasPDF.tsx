@@ -5,9 +5,13 @@ import Layout from "./global/Layout";
 
 interface BitacoraNotasPDFProps {
   data: any;
+  esProfesor?: boolean;
 }
 
-const BitacoraNotasPDF: React.FC<BitacoraNotasPDFProps> = ({ data }) => {
+const BitacoraNotasPDF: React.FC<BitacoraNotasPDFProps> = ({
+  data,
+  esProfesor,
+}) => {
   const TableEstudiantes = () => {
     const transformData = (data: any) => {
       let counter = 0;
@@ -36,7 +40,9 @@ const BitacoraNotasPDF: React.FC<BitacoraNotasPDFProps> = ({ data }) => {
             <Text style={styles.tableCell}>NOMBRES Y APELLIDOS</Text>
           </View>
           <View style={[styles.tableCol, styles.tableHeader]}>
-            <Text style={styles.tableCell}>NOTA</Text>
+            <Text style={styles.tableCell}>
+              {esProfesor ? "NOTA" : "FIRMA"}
+            </Text>
           </View>
         </View>
         {transformedData.map((estudiante: any, index: any) => (
@@ -53,7 +59,9 @@ const BitacoraNotasPDF: React.FC<BitacoraNotasPDFProps> = ({ data }) => {
               </Text>
             </View>
             <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>{estudiante.NOTA}</Text>
+              {esProfesor ? (
+                <Text style={styles.tableCell}>{estudiante.NOTA}</Text>
+              ) : null}
             </View>
           </View>
         ))}

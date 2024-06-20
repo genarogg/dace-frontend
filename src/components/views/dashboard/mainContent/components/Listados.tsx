@@ -6,8 +6,6 @@ import { Grid } from "gridjs-react";
 
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-
-
 import { RxActivityLog } from "react-icons/rx";
 
 import DownloadPDFButton from "./pdf/DownloadPDFButton";
@@ -18,9 +16,9 @@ import { BACKEND_URL } from "@env";
 
 import BitacoraNotasPDF from "./pdf/BitacoraNotasPDF";
 
-interface BitacoraNotasProps {}
+interface ListadosProps {}
 
-const BitacoraNotas: React.FC<BitacoraNotasProps> = () => {
+const Listados: React.FC<ListadosProps> = () => {
   const [formData, setFormData] = useState({
     materia: "",
     estudiantes: [] as any[],
@@ -31,7 +29,7 @@ const BitacoraNotas: React.FC<BitacoraNotasProps> = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch(`${BACKEND_URL}/notas/obtenerCargadas`, {
+    fetch(`${BACKEND_URL}/listado/obtener`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -106,7 +104,6 @@ const BitacoraNotas: React.FC<BitacoraNotasProps> = () => {
                     <DownloadPDFButton
                       document={
                         <BitacoraNotasPDF
-                          esProfesor={true}
                           data={info[parseInt(formData.materia) - 1]}
                         />
                       }
@@ -123,4 +120,4 @@ const BitacoraNotas: React.FC<BitacoraNotasProps> = () => {
   );
 };
 
-export default BitacoraNotas;
+export default Listados;
