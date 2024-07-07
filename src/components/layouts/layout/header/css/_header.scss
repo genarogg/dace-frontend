@@ -46,6 +46,9 @@
           overflow: hidden;
           @include cuadrado(40px);
           border: 3px solid #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
           img {
             @include cuadrado(40px);

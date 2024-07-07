@@ -1,0 +1,14 @@
+.reset-pass {
+  display: flex;
+  justify-content: center;
+  .container-form-all.right-active {
+    height: 300px;
+    min-height: 300px;
+    max-height: 300px;
+    .register.right {
+      height: 300px;
+      min-height: 300px;
+      max-height: 300px;
+    }
+  }
+}

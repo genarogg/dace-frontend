@@ -21,7 +21,7 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
   return (
     <footer className="footer-container">
       <div className="desktop-footer">
-        <button>Ver videos demostrativos</button>
+        <button style={{ opacity: "0" }}>Ver videos demostrativos</button>
         <ul>
           <Li to="#" ico={<FaFacebookF />} />
           <Li to="#" ico={<FaXTwitter />} />

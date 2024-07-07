@@ -34,7 +34,7 @@ const HeadBtn: React.FC<HeadBtnProps> = ({ cardState }) => {
           btnActive();
         }}
       >
-        <span>Regístrarse</span>
+        <span>activar cuenta</span>
       </button>
     </div>
   );

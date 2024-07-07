@@ -43,7 +43,7 @@ const BitacoraLogin: React.FC<BitacoraLoginProps> = () => {
 
   return (
     <>
-      <BannerPosition title="registros de notas cargadas" />
+      <BannerPosition title="Inicios de sesion" />
 
       <div className="horario bitacora-login">
         <Grid data={data} columns={columns} />

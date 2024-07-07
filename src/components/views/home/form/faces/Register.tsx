@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import HeadBtn from "./global/HeadBtn";
 import ContainerInput from "./global/ContainerInput";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 import { BsEnvelopeFill } from "react-icons/bs";
 import { MdLock } from "react-icons/md";
 import { HiIdentification } from "react-icons/hi2";
 import { BsFillEnvelopeHeartFill } from "react-icons/bs";
 import { IoMdUnlock } from "react-icons/io";
+import handleSubmit from "./global/enviarFormActive";
+
 interface RegisterProps {
   cardState: (css: string) => void;
 }
@@ -20,10 +23,17 @@ const Register: React.FC<RegisterProps> = ({ cardState }) => {
     passwordRepeat: "",
   });
 
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  const [loading, setLoading] = useState(false);
   return (
     <div className="register right" id="register">
       <HeadBtn cardState={cardState} />
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit(executeRecaptcha, formData, setLoading);
+        }}
+      >
         <ContainerInput
           type="text"
           name="cedula"
@@ -80,8 +90,8 @@ const Register: React.FC<RegisterProps> = ({ cardState }) => {
         />
 
         <div className="submit-container">
-          <button className="submit" id="">
-            Registrarse
+          <button className="submit" id="" disabled={loading}>
+            activar cuenta
           </button>
         </div>
       </form>

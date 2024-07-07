@@ -81,7 +81,7 @@ const BitacoraNotas: React.FC<BitacoraNotasProps> = () => {
 
   return (
     <>
-      <BannerPosition title="Notas cargadas" />
+      <BannerPosition title="registros de notas cargadas" />
       <div className=" notasCargadas perfil  login">
         <form>
           <Select

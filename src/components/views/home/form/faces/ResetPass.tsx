@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import $ from "../function/$";
-
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ContainerInput from "./global/ContainerInput";
 
 import { BsEnvelopeFill } from "react-icons/bs";
 import { FaArrowLeft } from "react-icons/fa6";
 import { Icono } from "@nano";
 import { IoSend } from "react-icons/io5";
-
+import handleSubmit from "./global/resetPass";
 interface ResetPassProps {
   cardState: (css: string) => void;
 }
@@ -28,13 +28,15 @@ const ResetPass: React.FC<ResetPassProps> = ({ cardState }) => {
       }
 
       const reset = $("reset");
-      
+
       if (reset) {
         reset.style.display = "none";
       }
-      
     }, 600);
   };
+
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  const [loading, setLoading] = useState(false);
 
   return (
     <div className="reset left" id="reset">
@@ -53,7 +55,12 @@ const ResetPass: React.FC<ResetPassProps> = ({ cardState }) => {
 
         <hr className="titleHr" />
       </div>
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit(executeRecaptcha, formData, setLoading);
+        }}
+      >
         <div className="container-reset">
           <ContainerInput
             type="email"
@@ -65,7 +72,7 @@ const ResetPass: React.FC<ResetPassProps> = ({ cardState }) => {
               setFormData({ ...formData, email: e.target.value })
             }
           />
-          <button onClick={() => {}}>
+          <button className="submit" id="" disabled={loading}>
             <Icono icono={<IoSend />} />
           </button>
         </div>
